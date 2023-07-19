@@ -1,0 +1,137 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quizzes Disponíveis</title>
+    <style>
+        /* Estilos do menu-bar, header e footer (mantidos do código anterior) */
+
+        /* Estilos específicos para o conteúdo */
+        .content {
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .quiz-card {
+            background-color: #F0F0F0;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8); /* Efeito de sombra */
+            flex-basis: calc(33.33% - 40px); 
+            box-sizing: border-box;
+        }
+
+            .quiz-card img {
+                width: 100%;
+                max-height: 150px; /* Ajuste a altura máxima da imagem conforme necessário */
+                object-fit: cover;
+                border-radius: 5px;
+            }
+
+            .quiz-card h2 {
+                margin-top: 10px;
+                margin-bottom: 5px;
+                font-size: 1.2em;
+            }
+
+            .quiz-card p {
+                margin: 0;
+                color: #666666;
+            }
+
+            @@media (max-width: 768px) {
+            .quiz-card {
+                flex-basis: 100%; /* Ocupa toda a largura disponível em dispositivos móveis */
+            }
+
+            .content {
+                padding: 10px; /* Reduz o espaçamento entre os cards em dispositivos móveis */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Menu-bar e header (mantidos do código anterior) -->
+    <div class="content">
+        <div class="quiz-card"> 
+            <img src="https://learn.microsoft.com/pt-br/shows/on-net/media/ondotnet-titleimage.png" style="height:60%;">
+            <h2>C# / .Net</h2>
+            <p>Teste seu conhecimento sobre a principal plataforma de desenvolvimento da Microsoft</p>
+            <a asp-controller="CSharpQuiz" asp-action="CSharpQuiz">Iniciar Quiz</a>
+        </div>
+
+        <div class="quiz-card">
+            <img src="https://i0.wp.com/podprogramar.com.br/wp-content/uploads/2019/06/sql_.png?resize=776%2C310&ssl=1" style="height:60%;">
+            <h2>SQL</h2>
+            <p>Descrição do Quiz 2.</p>
+            <p>Dificuldade: Médio</p>
+            <a href="#">Iniciar Quiz</a>
+        </div>
+
+        <div class="quiz-card">
+            <img src="https://hotmart.s3.amazonaws.com/product_pictures/073a96c9-0822-4297-8df1-4dddb8703296/php.png" style="height:60%;">
+            <h2>PHP</h2>
+            <p>Descrição do Quiz 2.</p>
+            <p>Dificuldade: Médio</p>
+            <a href="#">Iniciar Quiz</a>
+        </div>
+
+        <div class="quiz-card">
+            <img src="https://codigofonte.com.br/wp-content/uploads/2020/02/delphi.png" style="height:60%;">
+            <h2>Delphi</h2>
+            <p>Descrição do Quiz 2.</p>
+            <p>Dificuldade: Médio</p>
+            <a href="#">Iniciar Quiz</a>
+        </div>
+
+        <div class="quiz-card">
+            <img src="https://e0.pxfuel.com/wallpapers/464/238/desktop-wallpaper-python-graphic-design-graphical-user-interface-django-standing-background-python-coding.jpg" style="height:60%;">
+            <h2>Python</h2>
+            <p>Descrição do Quiz 2.</p>
+            <p>Dificuldade: Médio</p>
+            <a href="#">Iniciar Quiz</a>
+        </div>
+
+        <div class="quiz-card">
+            <img src="https://i.ytimg.com/vi/QrJyvzjjDT8/maxresdefault.jpg" style="height:60%;">
+            <h2>HTML & CSS</h2>
+            <p>Descrição do Quiz 2.</p>
+            <p>Dificuldade: Médio</p>
+            <a href="#">Iniciar Quiz</a>
+        </div>
+
+        <div class="quiz-card">
+            <img src="https://e0.pxfuel.com/wallpapers/286/695/desktop-wallpaper-how-to-change-your-career-from-graphic-design-to-ux-ui-designer.jpg" style="height:60%;">
+            <h2>UI/UX</h2>
+            <p>Descrição do Quiz 2.</p>
+            <p>Dificuldade: Médio</p>
+            <a href="#">Iniciar Quiz</a>
+        </div>
+
+        <div class="quiz-card">
+            <img src="https://wallpaperaccess.com/full/3909258.jpg" style="height:60%;">
+            <h2>React</h2>
+            <p>Descrição do Quiz 2.</p>
+            <p>Dificuldade: Médio</p>
+            <a href="#">Iniciar Quiz</a>
+        </div>
+
+        <div class="quiz-card">
+            <img src="https://e0.pxfuel.com/wallpapers/160/477/desktop-wallpaper-english-english-background-on-bat-english-word.jpg" style="height:60%;">
+            <h2>English</h2>
+            <p>Descrição do Quiz 2.</p>
+            <p>Dificuldade: Médio</p>
+            <a href="#">Iniciar Quiz</a>
+        </div>
+        <!-- Adicione mais cards de Quiz conforme necessário -->
+    </div>
+    <!-- Footer (mantido do código anterior) -->
+</body>
+</html>

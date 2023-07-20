@@ -6,5 +6,6 @@ namespace DevQuiz.WEB.Areas.Identity.Data
     {
         public string Name { get; set; }
         public string UserImage { get; set; }
+        public int Score { get; set; }
     }
 }

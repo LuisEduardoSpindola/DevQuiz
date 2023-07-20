@@ -7,11 +7,11 @@ using NuGet.LibraryModel;
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DbContextConnection") ?? throw new InvalidOperationException("Connection string 'DbContextConnection' not found.");
 
-builder.Services.AddDbContext<DbContextIdentity>(options => options.UseSqlServer(connectionString));
+builder.Services.AddDbContext<IdentityDbContext>(options => options.UseSqlServer(connectionString));
 builder.Services.AddScoped<RoleManager<IdentityRole>>(); // Adicione esta linha para registrar o RoleManager<IdentityRole>
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddRoles<IdentityRole>()
-.AddEntityFrameworkStores<DbContextIdentity>();
+.AddEntityFrameworkStores<IdentityDbContext>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -40,5 +40,11 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.MapRazorPages();
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+});
+
 
 app.Run();

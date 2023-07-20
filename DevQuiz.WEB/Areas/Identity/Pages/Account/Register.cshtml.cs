@@ -75,12 +75,12 @@ namespace DevQuiz.WEB.Areas.Identity.Pages.Account
         /// </summary>
         public class InputModel
         {
-            [Display(Name = "Foto")]
-            public string UserImage { get; set; }
+    [Display(Name = "Foto")]
+    public string UserImage { get; set; }
 
-            [Required]
-            [Display(Name = "Nome")]
-            public string Name { get; set; }
+    [Required]
+    [Display(Name = "Nome")]
+    public string Name { get; set; }
 
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used

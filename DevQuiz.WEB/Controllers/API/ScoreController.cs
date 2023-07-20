@@ -1,38 +1,43 @@
 ﻿using DevQuiz.WEB.Areas.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore; // Certifique-se de importar o namespace necessário.
+using Microsoft.EntityFrameworkCore;
 
 namespace DevQuiz.WEB.Controllers.API
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("Controllers/API/[controller]")]
     public class ScoreController : ControllerBase
     {
-        private readonly DbContextOptions<DbContextIdentity> _dbContextOptions;
+        private readonly IdentityDbContext _dbContext;
 
-        public ScoreController(DbContextOptions<DbContextIdentity> dbContextOptions)
+        public ScoreController(IdentityDbContext dbContext)
         {
-            _dbContextOptions = dbContextOptions;
+            _dbContext = dbContext;
         }
 
         [HttpPost]
-        public IActionResult SaveScore(int score)
+        public IActionResult SaveScore([FromBody] int score)
         {
-            // Save the score to the database or perform any other necessary actions
-            using (var context = new DbContextIdentity(_dbContextOptions))
+            try
             {
+                // Salvar a pontuação no banco de dados ou realizar outras ações necessárias
                 var user = new User
                 {
                     Score = score
-                    // Add any other user-related properties as needed
+                    // Adicionar quaisquer outras propriedades relacionadas ao usuário, se necessário
                 };
 
-                context.Users.Add(user);
-                context.SaveChanges();
-            }
+                _dbContext.Users.Add(user);
+                _dbContext.SaveChanges();
 
-            // Return a response indicating success or any other data you want to return.
-            return Ok();
+                // Retornar uma resposta indicando sucesso ou outros dados que você deseja retornar
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                // Retornar uma resposta de erro com a mensagem detalhada da exceção
+                return StatusCode(500, $"Erro ao salvar a pontuação: {ex.Message}");
+            }
         }
     }
 }

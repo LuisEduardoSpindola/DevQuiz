@@ -431,17 +431,20 @@
                             this.quiz.questions[i].responses[this.userResponses[i]].correct
                         ) {
                             score = score + 1;
+                            currentScore = score;
                         }
                     }
 
-                        axios.post('api/ScoreController', { score: score })
-                            .then(response => {
-                                console.log("Pontos Salvos!");
-                            })
-                            .catch(error => {
-                                console.error("Erro ao salvar a pontuação:", error);
-                            });
+                axios.post('/Controllers/API/ScoreController/SaveScore', { score: currentScore })
+                .then(response => {
+                    console.log("Pontuação enviada com sucesso!");
+                })
+                .catch(error => {
+                    console.error("Erro ao enviar a pontuação:", error);
+                });
 
+
+                    // Retornar o score calculado
                     return score;
                 }
             }

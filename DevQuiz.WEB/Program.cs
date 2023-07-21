@@ -12,6 +12,7 @@ builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfi
     .AddEntityFrameworkStores<IdentityDbContext>();
 
 
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 var app = builder.Build();

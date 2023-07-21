@@ -1,5 +1,5 @@
 ﻿@page
-@model DevQuiz.WEB.Views.CSharpQuiz.CSharpQuizEasyModel
+@model DevQuiz.WEB.Views.CSharpQuiz.CSharpQuizHardModel
 @{
 }
 
@@ -222,7 +222,7 @@
                 <!--qusetionContainer-->
                 <div class="questionContainer" v-if="questionIndex<quiz.questions.length" v-bind:key="questionIndex">
                     <header>
-                        <h1 class="title is-6">C#/.NET Quiz</h1>
+                        <h1 class="title is-6">SQL Quiz</h1>
                         <!--progress-->
                         <div class="progressContainer">
                             <progress class="progress is-info is-small" :value="(questionIndex/quiz.questions.length)*100" max="100">{{(questionIndex/quiz.questions.length)*100}}%</progress>
@@ -287,100 +287,101 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
         var quiz = {
-            user: "User",
-            questions: [
-                {
-                    text: "O que é .NET?",
-                    responses: [
-                        { text: "Um sistema operacional" },
-                        { text: "Hyper text transfer protocol" },
-                        { text: "Uma estrutura de desenvolvimento de software", correct: true },
-                        { text: "Nenhuma das opções acima" }
-                    ]
-                },
-                {
-                    text: "Qual dos seguintes é um componente essencial do .NET Framework?",
-                    responses: [
-                        { text: "Common Language Runtime (CLR)", correct: true },
-                        { text: "Java Development Kit (JDK)" },
-                        { text: "Python Interpreter" },
-                        { text: "HTML5" }
-                    ]
-                },
-                {
-                    text: "Qual linguagem é comumente usada para desenvolver aplicativos no .NET Framework?",
-                    responses: [
-                        { text: "Java" },
-                        { text: "C++" },
-                        { text: "C#", correct: true },
-                        { text: "PHP" }
-                    ]
-                },
-                {
-                    text: "Qual dos seguintes é um ambiente de desenvolvimento integrado (IDE) amplamente utilizado para projetos .NET?",
-                    responses: [
-                        { text: "Eclipse" },
-                        { text: "Visual Studio", correct: true },
-                        { text: "IntelliJ IDEA" },
-                        { text: "Sublime Text" }
-                    ]
-                },
-                {
-                    text: "Qual dos seguintes tipos de aplicativos .NET é adequado para executar em várias plataformas, incluindo Windows, macOS e Linux?",
-                    responses: [
-                        { text: "Aplicativos de Console" },
-                        { text: "Aplicativos Windows Forms" },
-                        { text: "Aplicativos WPF (Windows Presentation Foundation)" },
-                        { text: "Aplicativos .NET Core", correct: true }
-                    ]
-                },
-                {
-                    text: "O que é ASP.NET?",
-                    responses: [
-                        { text: "Uma linguagem de marcação para criar páginas web estáticas" },
-                        { text: "Uma estrutura para criar aplicativos web usando C#", correct: true },
-                        { text: "Uma ferramenta de edição de imagens" },
-                        { text: "Uma biblioteca de jogos em 3D" }
-                    ]
-                },
-                {
-                    text: "Qual dos seguintes é um mecanismo usado no .NET Framework para organizar e gerenciar dados de forma hierárquica?",
-                    responses: [
-                        { text: "Entity Framework", correct: true },
-                        { text: "LINQ (Language Integrated Query)" },
-                        { text: "ADO.NET (Active Data Objects)" },
-                        { text: "ASP.NET Core" }
-                    ]
-                },
-                {
-                    text: "Quais dos seguintes são os principais pilares do .NET Core?",
-                    responses: [
-                        { text: "Common Language Runtime (CLR) e Framework Class Library (FCL)" },
-                        { text: "Linguagens de Programação e Compilador Just-In-Time (JIT)" },
-                        { text: "Common Language Runtime (CLR) e Biblioteca Unificada (UCL)" },
-                        { text: "Linguagens de Programação e Framework Class Library (FCL)", correct: true }
-                    ]
-                },
-                {
-                    text: "O que é o NuGet no ecossistema .NET?",
-                    responses: [
-                        { text: "Um compilador para C#" },
-                        { text: "Um repositório de código-fonte aberto" },
-                        { text: "Um sistema de controle de versão" },
-                        { text: "Um gerenciador de pacotes", correct: true }
-                    ]
-                },
-                {
-                    text: "Qual dos seguintes é um serviço de hospedagem em nuvem da Microsoft para aplicativos .NET?",
-                    responses: [
-                        { text: "Azure App Service", correct: true },
-                        { text: "AWS Lambda" },
-                        { text: "Google Cloud Platform (GCP)" },
-                        { text: "Heroku" }
-                    ]
-                }
+    user: "User",
+    questions: [
+        {
+            text: "Qual é o objetivo da cláusula 'GROUP BY' em uma consulta SQL?",
+            responses: [
+                { text: "Ordenar o resultado em ordem crescente" },
+                { text: "Agrupar registros que possuam o mesmo valor em uma coluna específica", correct: true },
+                { text: "Filtrar registros que não atendam a determinada condição" },
+                { text: "Selecionar colunas específicas para a consulta" }
             ]
-        };
+        },
+        {
+            text: "Qual é a finalidade da cláusula 'HAVING' em uma consulta SQL?",
+            responses: [
+                { text: "Selecionar colunas específicas para a consulta" },
+                { text: "Filtrar registros com base em uma condição" },
+                { text: "Agrupar registros de acordo com o valor de uma coluna" },
+                { text: "Filtrar registros agrupados com base em uma condição", correct: true }
+            ]
+        },
+        {
+            text: "Em SQL, qual é a diferença entre INNER JOIN e OUTER JOIN?",
+            responses: [
+                { text: "INNER JOIN retorna apenas registros que possuem correspondência nas duas tabelas, enquanto OUTER JOIN retorna todos os registros de ambas as tabelas", correct: true },
+                { text: "INNER JOIN retorna todos os registros de ambas as tabelas, enquanto OUTER JOIN retorna apenas registros que possuem correspondência nas duas tabelas" },
+                { text: "INNER JOIN não pode ser usado com mais de duas tabelas, enquanto OUTER JOIN pode ser usado com qualquer número de tabelas" },
+                { text: "OUTER JOIN só pode ser usado com duas tabelas, enquanto INNER JOIN pode ser usado com qualquer número de tabelas" }
+            ]
+        },
+        {
+            text: "Qual é o objetivo da cláusula 'ORDER BY' em uma consulta SQL?",
+            responses: [
+                { text: "Agrupar os resultados em ordem crescente ou decrescente com base em uma coluna específica", correct: true },
+                { text: "Filtrar registros que atendam a determinada condição" },
+                { text: "Selecionar colunas específicas para a consulta" },
+                { text: "Agrupar registros que possuam o mesmo valor em uma coluna específica" }
+            ]
+        },
+        {
+            text: "Qual é a finalidade da cláusula 'LIMIT' em uma consulta SQL?",
+            responses: [
+                { text: "Agrupar os resultados em ordem crescente ou decrescente com base em uma coluna específica" },
+                { text: "Limitar a quantidade de registros retornados pela consulta", correct: true },
+                { text: "Filtrar registros que atendam a determinada condição" },
+                { text: "Selecionar colunas específicas para a consulta" }
+            ]
+        },
+        {
+            text: "Em SQL, qual é a função da cláusula 'DISTINCT' em uma consulta?",
+            responses: [
+                { text: "Filtrar registros que atendam a determinada condição" },
+                { text: "Agrupar registros de acordo com o valor de uma coluna" },
+                { text: "Selecionar colunas específicas para a consulta" },
+                { text: "Remover registros duplicados do resultado da consulta", correct: true }
+            ]
+        },
+        {
+            text: "Qual é a função da cláusula 'JOIN' em uma consulta SQL?",
+            responses: [
+                { text: "Selecionar colunas específicas para a consulta" },
+                { text: "Agrupar registros de acordo com o valor de uma coluna" },
+                { text: "Filtrar registros que atendam a determinada condição" },
+                { text: "Combinar dados de duas ou mais tabelas com base em uma coluna relacionada", correct: true }
+            ]
+        },
+        {
+            text: "Em SQL, qual é a função da cláusula 'WHERE' em uma consulta?",
+            responses: [
+                { text: "Selecionar colunas específicas para a consulta" },
+                { text: "Agrupar registros de acordo com o valor de uma coluna" },
+                { text: "Combinar dados de duas ou mais tabelas com base em uma coluna relacionada" },
+                { text: "Filtrar registros que atendam a determinada condição", correct: true }
+            ]
+        },
+        {
+            text: "Qual é o resultado da seguinte consulta SQL?\n\nSELECT name FROM customers WHERE age > 25 ORDER BY name DESC",
+            responses: [
+                { text: "Retorna os nomes dos clientes com idade superior a 25 em ordem alfabética decrescente", correct: true },
+                { text: "Retorna os nomes dos clientes com idade superior a 25 em ordem alfabética crescente" },
+                { text: "Retorna os nomes dos clientes com idade exatamente 25" },
+                { text: "Retorna os nomes de todos os clientes em ordem alfabética decrescente" }
+            ]
+        },
+        {
+            text: "Qual é a finalidade da função agregada SUM() em SQL?",
+            responses: [
+                { text: "Retornar o número total de registros na tabela" },
+                { text: "Retornar a média dos valores em uma coluna numérica" },
+                { text: "Retornar a soma dos valores em uma coluna numérica", correct: true },
+                { text: "Retornar o valor máximo em uma coluna numérica" }
+            ]
+        }
+    ]
+};
+
 
         var userResponseSkelaton = Array(quiz.questions.length).fill(null)
 

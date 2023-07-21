@@ -1,5 +1,5 @@
 ﻿@page
-@model DevQuiz.WEB.Views.CSharpQuiz.CSharpQuizEasyModel
+@model DevQuiz.WEB.Views.CSharpQuiz.CSharpQuizMediumModel
 @{
 }
 
@@ -222,7 +222,7 @@
                 <!--qusetionContainer-->
                 <div class="questionContainer" v-if="questionIndex<quiz.questions.length" v-bind:key="questionIndex">
                     <header>
-                        <h1 class="title is-6">C#/.NET Quiz</h1>
+                        <h1 class="title is-6">Python Quiz</h1>
                         <!--progress-->
                         <div class="progressContainer">
                             <progress class="progress is-info is-small" :value="(questionIndex/quiz.questions.length)*100" max="100">{{(questionIndex/quiz.questions.length)*100}}%</progress>
@@ -286,101 +286,102 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-        var quizReact = {
-            user: "User",
-            questions: [
-                {
-                    text: "O que é React?",
-                    responses: [
-                        { text: "Uma linguagem de programação" },
-                        { text: "Um framework de back-end" },
-                        { text: "Uma biblioteca JavaScript para construção de interfaces de usuário", correct: true },
-                        { text: "Uma ferramenta de gerenciamento de banco de dados" }
-                    ]
-                },
-                {
-                    text: "Qual hook do React é usado para adicionar estado a um componente funcional?",
-                    responses: [
-                        { text: "useEffect" },
-                        { text: "useState", correct: true },
-                        { text: "useContext" },
-                        { text: "useReducer" }
-                    ]
-                },
-                {
-                    text: "Como você renderiza um componente React em um elemento HTML com id 'root'?",
-                    responses: [
-                        { text: "ReactDOM.render(component, 'root');" },
-                        { text: "React.renderComponent(component, 'root');" },
-                        { text: "React.render(component, '#root');" },
-                        { text: "ReactDOM.render(component, document.getElementById('root'));", correct: true }
-                    ]
-                },
-                {
-                    text: "Qual método do ciclo de vida do React é usado para executar código após o componente ser montado?",
-                    responses: [
-                        { text: "componentWillMount" },
-                        { text: "componentDidMount", correct: true },
-                        { text: "componentWillUpdate" },
-                        { text: "componentDidUpdate" }
-                    ]
-                },
-                {
-                    text: "Em React, qual é a sintaxe para renderizar um componente filho chamado 'ChildComponent' dentro de um componente pai?",
-                    responses: [
-                        { text: "<ChildComponent />", correct: true },
-                        { text: "{ChildComponent}" },
-                        { text: "{<ChildComponent>}" },
-                        { text: "(ChildComponent)" }
-                    ]
-                },
-                {
-                    text: "Qual é a biblioteca de gerenciamento de estado mais comumente usada com React?",
-                    responses: [
-                        { text: "Redux", correct: true },
-                        { text: "Axios" },
-                        { text: "Lodash" },
-                        { text: "Jest" }
-                    ]
-                },
-                {
-                    text: "O que é JSX em React?",
-                    responses: [
-                        { text: "JavaScript XML", correct: true },
-                        { text: "Um pré-processador de CSS" },
-                        { text: "Um formato de arquivo de dados" },
-                        { text: "Uma biblioteca de animação" }
-                    ]
-                },
-                {
-                    text: "Como você define um componente React como uma classe?",
-                    responses: [
-                        { text: "class MyComponent extends React.Component {}", correct: true },
-                        { text: "function MyComponent() {}" },
-                        { text: "const MyComponent = React.createClass({})" },
-                        { text: "const MyComponent = React.Component {}" }
-                    ]
-                },
-                {
-                    text: "Qual é a sintaxe correta para passar props para um componente React chamado 'ChildComponent'?",
-                    responses: [
-                        { text: "<ChildComponent props={props} />" },
-                        { text: "<ChildComponent {props} />" },
-                        { text: "<ChildComponent {...props} />", correct: true },
-                        { text: "<ChildComponent props={...props} />" }
-                    ]
-                },
-                {
-                    text: "Qual é a função usada para criar um novo elemento React no Virtual DOM?",
-                    responses: [
-                        { text: "React.createElement()", correct: true },
-                        { text: "React.makeElement()" },
-                        { text: "React.newElement()" },
-                        { text: "React.create()" }
-                    ]
-                }
+        var quiz = {
+    user: "User",
+    questions: [
+        {
+            text: "Qual é a sintaxe correta para imprimir 'Hello, World!' em Python?",
+            responses: [
+                { text: "print('Hello, World!')", correct: true },
+                { text: "print 'Hello, World!'" },
+                { text: "print('Hello, World!)" },
+                { text: "print('Hello, World!)" }
             ]
-        };
+        },
+        {
+            text: "Qual é a função usada para obter a entrada do usuário em Python?",
+            responses: [
+                { text: "input()", correct: true },
+                { text: "get_input()" },
+                { text: "user_input()" },
+                { text: "get_user_input()" }
+            ]
+        },
+        {
+            text: "Em Python, como você define uma função?",
+            responses: [
+                { text: "function minha_funcao():" },
+                { text: "def minha_funcao()" },
+                { text: "def minha_funcao():" , correct: true },
+                { text: "function minha_funcao():", correct: true }
+            ]
+        },
+        {
+            text: "Qual é a forma correta de comentar uma linha em Python?",
+            responses: [
+                { text: "// This is a comment" },
+                { text: "# This is a comment", correct: true },
+                { text: "<!-- This is a comment -->" },
+                { text: "/* This is a comment */" }
+            ]
+        },
+        {
+            text: "Qual é o operador usado para realizar uma divisão inteira em Python?",
+            responses: [
+                { text: "//", correct: true },
+                { text: "/" },
+                { text: "%" },
+                { text: "%%" }
+            ]
+        },
+        {
+            text: "Em Python, como você verifica se um elemento está em uma lista?",
+            responses: [
+                { text: "elemento in lista", correct: true },
+                { text: "elemento not in lista" },
+                { text: "lista.contains(elemento)" },
+                { text: "lista.includes(elemento)" }
+            ]
+        },
+        {
+            text: "Qual é o tipo de dado que é usado para armazenar texto em Python?",
+            responses: [
+                { text: "string", correct: true },
+                { text: "int" },
+                { text: "boolean" },
+                { text: "char" }
+            ]
+        },
+        {
+            text: "Qual é o método usado para encontrar o comprimento de uma lista em Python?",
+            responses: [
+                { text: "list.length()" },
+                { text: "list.count()" },
+                { text: "list.size()" },
+                { text: "len(list)", correct: true }
+            ]
+        },
+        {
+            text: "Em Python, como você define um loop for que itera sobre uma lista?",
+            responses: [
+                { text: "for i in range(len(lista)):" },
+                { text: "for i in lista.length():" },
+                { text: "for i in lista:" , correct: true },
+                { text: "for i = 0 to len(lista):" }
+            ]
+        },
+        {
+            text: "Qual é o resultado da expressão 3 + 2 * 4 em Python?",
+            responses: [
+                { text: "20" },
+                { text: "11" },
+                { text: "14" },
+                { text: "11", correct: true }
+            ]
+        }
+    ]
+};
+
 
 
         var userResponseSkelaton = Array(quiz.questions.length).fill(null)

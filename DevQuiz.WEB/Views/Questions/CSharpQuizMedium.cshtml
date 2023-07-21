@@ -286,101 +286,101 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-        var quizSql = {
-    user: "User",
-    questions: [
-        {
-            text: "O que significa SQL?",
-            responses: [
-                { text: "Structured Query Language", correct: true },
-                { text: "Simple Query Language" },
-                { text: "System Query Language" },
-                { text: "Structured Question Language" }
+        var quiz = {
+            user: "User",
+            questions: [
+                {
+                    text: "O que é C#?",
+                    responses: [
+                        { text: "Uma biblioteca de design gráfico" },
+                        { text: "Uma linguagem de programação", correct: true },
+                        { text: "Uma ferramenta de edição de imagens" },
+                        { text: "Um sistema operacional" }
+                    ]
+                },
+                {
+                    text: "Qual é a palavra-chave usada para declarar uma variável em C#?",
+                    responses: [
+                        { text: "variable" },
+                        { text: "var" },
+                        { text: "int" },
+                        { text: "string", correct: true }
+                    ]
+                },
+                {
+                    text: "Em C#, qual é o operador de igualdade?",
+                    responses: [
+                        { text: "==", correct: true },
+                        { text: "=" },
+                        { text: "===" },
+                        { text: "!=" }
+                    ]
+                },
+                {
+                    text: "Qual dos seguintes é um tipo de dado numérico em C#?",
+                    responses: [
+                        { text: "text" },
+                        { text: "bool" },
+                        { text: "float" },
+                        { text: "int", correct: true }
+                    ]
+                },
+                {
+                    text: "Qual é o nome do ambiente de desenvolvimento integrado (IDE) oficial da Microsoft para desenvolvimento em C#?",
+                    responses: [
+                        { text: "Visual Basic" },
+                        { text: "Visual Studio", correct: true },
+                        { text: "Code::Blocks" },
+                        { text: "Eclipse" }
+                    ]
+                },
+                {
+                    text: "Em C#, como você declara um método chamado 'Somar' que recebe dois parâmetros inteiros e retorna a soma deles?",
+                    responses: [
+                        { text: "function int Somar(int a, int b) { return a + b; }" },
+                        { text: "void Somar(int a, int b) { return a + b; }" },
+                        { text: "int Somar(int a, int b) { return a + b; }", correct: true },
+                        { text: "def Somar(a: int, b: int) -> int: return a + b" }
+                    ]
+                },
+                {
+                    text: "Qual é o namespace padrão para trabalhar com manipulação de arquivos em C#?",
+                    responses: [
+                        { text: "System.Text" },
+                        { text: "System.IO", correct: true },
+                        { text: "System.Net" },
+                        { text: "System.File" }
+                    ]
+                },
+                {
+                    text: "Em C#, como você converte uma string em um número inteiro?",
+                    responses: [
+                        { text: "Convert.ToInt(string)" },
+                        { text: "string.ToInt()" },
+                        { text: "Int.Parse(string)", correct: true },
+                        { text: "string.ParseInt()" }
+                    ]
+                },
+                {
+                    text: "Em C#, qual é a sintaxe correta para criar uma lista de inteiros chamada 'numeros'?",
+                    responses: [
+                        { text: "List<int> numeros = new List<int>();", correct: true },
+                        { text: "List<int> numeros = [];" },
+                        { text: "List numeros = new List<int>();" },
+                        { text: "var numeros = new List<int>();" }
+                    ]
+                },
+                {
+                    text: "Qual é o operador de atribuição em C#?",
+                    responses: [
+                        { text: "==" },
+                        { text: "=", correct: true },
+                        { text: ":=" },
+                        { text: "===" }
+                    ]
+                }
             ]
-        },
-        {
-            text: "Qual é a finalidade do SQL?",
-            responses: [
-                { text: "Criar sites e aplicativos" },
-                { text: "Programar robôs" },
-                { text: "Gerenciar e manipular bancos de dados", correct: true },
-                { text: "Criar interfaces de usuário" }
-            ]
-        },
-        {
-            text: "Qual comando SQL é usado para selecionar dados de uma tabela?",
-            responses: [
-                { text: "SELECT", correct: true },
-                { text: "UPDATE" },
-                { text: "DELETE" },
-                { text: "INSERT" }
-            ]
-        },
-        {
-            text: "Qual comando SQL é usado para atualizar dados em uma tabela?",
-            responses: [
-                { text: "UPDATE", correct: true },
-                { text: "SELECT" },
-                { text: "DELETE" },
-                { text: "INSERT" }
-            ]
-        },
-        {
-            text: "Qual comando SQL é usado para inserir novos registros em uma tabela?",
-            responses: [
-                { text: "INSERT", correct: true },
-                { text: "SELECT" },
-                { text: "UPDATE" },
-                { text: "DELETE" }
-            ]
-        },
-        {
-            text: "Qual comando SQL é usado para excluir registros de uma tabela?",
-            responses: [
-                { text: "DELETE", correct: true },
-                { text: "SELECT" },
-                { text: "UPDATE" },
-                { text: "INSERT" }
-            ]
-        },
-        {
-            text: "Qual cláusula SQL é usada para filtrar registros em uma consulta?",
-            responses: [
-                { text: "FILTER BY" },
-                { text: "HAVING" },
-                { text: "WHERE", correct: true },
-                { text: "GROUP BY" }
-            ]
-        },
-        {
-            text: "Qual cláusula SQL é usada para ordenar os resultados de uma consulta?",
-            responses: [
-                { text: "SORT BY" },
-                { text: "GROUP BY" },
-                { text: "ORDER BY", correct: true },
-                { text: "FILTER BY" }
-            ]
-        },
-        {
-            text: "Qual cláusula SQL é usada para agrupar os resultados de uma consulta?",
-            responses: [
-                { text: "FILTER BY" },
-                { text: "ORDER BY" },
-                { text: "GROUP BY", correct: true },
-                { text: "SORT BY" }
-            ]
-        },
-        {
-            text: "Qual comando SQL é usado para criar uma nova tabela?",
-            responses: [
-                { text: "ALTER TABLE" },
-                { text: "CREATE TABLE", correct: true },
-                { text: "DROP TABLE" },
-                { text: "UPDATE TABLE" }
-            ]
-        }
-    ]
-};
+        };
 
 
         var userResponseSkelaton = Array(quiz.questions.length).fill(null)

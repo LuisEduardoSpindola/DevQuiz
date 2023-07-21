@@ -1,5 +1,5 @@
 ﻿@page
-@model DevQuiz.WEB.Views.CSharpQuiz.CSharpQuizHardModel
+@model DevQuiz.WEB.Views.CSharpQuiz.CSharpQuizMediumModel
 @{
 }
 
@@ -222,7 +222,7 @@
                 <!--qusetionContainer-->
                 <div class="questionContainer" v-if="questionIndex<quiz.questions.length" v-bind:key="questionIndex">
                     <header>
-                        <h1 class="title is-6">C#/.NET Quiz</h1>
+                        <h1 class="title is-6">Flutter Quiz</h1>
                         <!--progress-->
                         <div class="progressContainer">
                             <progress class="progress is-info is-small" :value="(questionIndex/quiz.questions.length)*100" max="100">{{(questionIndex/quiz.questions.length)*100}}%</progress>
@@ -286,101 +286,102 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-        var quizFlutter = {
+        var quiz = {
             user: "User",
             questions: [
                 {
-                    text: "O que é o Flutter?",
+                    text: "O que é Flutter?",
                     responses: [
-                        { text: "Um editor de texto para desenvolvimento mobile" },
-                        { text: "Um framework de desenvolvimento front-end para web" },
-                        { text: "Um framework de desenvolvimento de aplicativos móveis", correct: true },
-                        { text: "Uma linguagem de programação para automação de tarefas" }
+                        { text: "Um framework para desenvolvimento de aplicativos móveis", correct: true },
+                        { text: "Um editor de texto" },
+                        { text: "Uma linguagem de programação" },
+                        { text: "Um sistema operacional" }
                     ]
                 },
                 {
-                    text: "Qual linguagem de programação é usada pelo Flutter?",
+                    text: "Qual linguagem de programação é usada no Flutter?",
                     responses: [
-                        { text: "JavaScript" },
                         { text: "Java" },
+                        { text: "Python" },
                         { text: "Dart", correct: true },
-                        { text: "Python" }
+                        { text: "JavaScript" }
                     ]
                 },
                 {
-                    text: "O que é um widget em Flutter?",
+                    text: "O que é um Widget no contexto do Flutter?",
                     responses: [
-                        { text: "Um ícone usado para representar um aplicativo na tela inicial do dispositivo" },
-                        { text: "Uma biblioteca de códigos prontos para uso em projetos Flutter" },
-                        { text: "Um elemento de interface gráfica, como botão ou caixa de texto", correct: true },
-                        { text: "Um termo usado para descrever o processo de animação em um aplicativo Flutter" }
+                        { text: "Uma biblioteca de código" },
+                        { text: "Um tema visual" },
+                        { text: "Um componente de interface do usuário", correct: true },
+                        { text: "Um arquivo de configuração" }
                     ]
                 },
                 {
-                    text: "Em Flutter, o que é o Hot Reload?",
+                    text: "Como você define um botão clicável no Flutter?",
                     responses: [
-                        { text: "Um recurso para aquecer a temperatura do dispositivo durante o desenvolvimento" },
-                        { text: "Um mecanismo para reiniciar o aplicativo durante o desenvolvimento" },
-                        { text: "Um recurso para testar o aplicativo em dispositivos mais antigos" },
-                        { text: "Um recurso para atualizar instantaneamente o código enquanto o aplicativo está sendo desenvolvido", correct: true }
+                        { text: "button: click" },
+                        { text: "button: press" },
+                        { text: "button: onTap", correct: true },
+                        { text: "button: activate" }
                     ]
                 },
                 {
-                    text: "Qual widget é usado para criar uma lista rolável de elementos em Flutter?",
+                    text: "O que é o Flutter Hot Reload?",
                     responses: [
-                        { text: "Scrollable" },
-                        { text: "ListView", correct: true },
+                        { text: "Uma função para reiniciar o aplicativo" },
+                        { text: "Um atalho de teclado" },
+                        { text: "Uma ferramenta de depuração" },
+                        { text: "Um recurso para visualizar alterações no aplicativo em tempo real", correct: true }
+                    ]
+                },
+                {
+                    text: "Qual é o elemento raiz de uma árvore de widgets no Flutter?",
+                    responses: [
+                        { text: "App" },
+                        { text: "Root" },
+                        { text: "Main" },
+                        { text: "MaterialApp", correct: true }
+                    ]
+                },
+                {
+                    text: "O que o Flutter oferece para criar layouts flexíveis e responsivos?",
+                    responses: [
+                        { text: "Grids" },
+                        { text: "Flexbox" },
+                        { text: "Columns" },
+                        { text: "Widgets Flexíveis", correct: true }
+                    ]
+                },
+                {
+                    text: "Qual widget é usado para criar uma lista rolável no Flutter?",
+                    responses: [
                         { text: "ScrollList" },
-                        { text: "ListScroll" }
+                        { text: "List" },
+                        { text: "ScrollView" },
+                        { text: "ListView", correct: true }
                     ]
                 },
                 {
-                    text: "Em Flutter, o que é o MaterialApp?",
+                    text: "Como você realiza navegação entre telas no Flutter?",
                     responses: [
-                        { text: "Um widget para exibir materiais de construção" },
-                        { text: "Um widget para exibir informações do material de um objeto" },
-                        { text: "Um widget que define a estrutura básica de um aplicativo Flutter", correct: true },
-                        { text: "Um widget para exibir informações sobre licenças de software" }
+                        { text: "Navigator", correct: true },
+                        { text: "Router" },
+                        { text: "Screen" },
+                        { text: "Route" }
                     ]
                 },
                 {
-                    text: "Qual widget é usado para criar uma barra de navegação inferior em Flutter?",
+                    text: "Qual é a função do pubspec.yaml no Flutter?",
                     responses: [
-                        { text: "BottomBar" },
-                        { text: "NavigationBar" },
-                        { text: "BottomNavigationBar", correct: true },
-                        { text: "BottomNav" }
-                    ]
-                },
-                {
-                    text: "Em Flutter, o que é um Stateful Widget?",
-                    responses: [
-                        { text: "Um widget usado para representar o estado atual do aplicativo" },
-                        { text: "Um widget usado para representar o estado de um objeto" },
-                        { text: "Um widget usado para representar informações em tempo real" },
-                        { text: "Um widget que pode ser reconstruído quando o estado do aplicativo é alterado", correct: true }
-                    ]
-                },
-                {
-                    text: "Como você adiciona uma imagem estática a um aplicativo Flutter?",
-                    responses: [
-                        { text: "Usando o widget StaticImage" },
-                        { text: "Usando o widget StaticImageProvider" },
-                        { text: "Importando a imagem diretamente no código Dart" },
-                        { text: "Colocando a imagem na pasta 'assets' e referenciando-a no arquivo pubspec.yaml", correct: true }
-                    ]
-                },
-                {
-                    text: "Em Flutter, qual widget é usado para criar um botão clicável?",
-                    responses: [
-                        { text: "ClickableButton" },
-                        { text: "TapButton" },
-                        { text: "FlatButton" },
-                        { text: "ElevatedButton", correct: true }
+                        { text: "Definir o ícone do aplicativo" },
+                        { text: "Gerenciar dependências do projeto", correct: true },
+                        { text: "Definir a cor de fundo do aplicativo" },
+                        { text: "Configurar as animações do aplicativo" }
                     ]
                 }
             ]
         };
+
 
 
         var userResponseSkelaton = Array(quiz.questions.length).fill(null)

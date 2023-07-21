@@ -1,5 +1,5 @@
 ﻿@page
-@model DevQuiz.WEB.Views.CSharpQuiz.CSharpQuizMediumModel
+@model DevQuiz.WEB.Views.CSharpQuiz.CSharpQuizEasyModel
 @{
 }
 
@@ -222,7 +222,7 @@
                 <!--qusetionContainer-->
                 <div class="questionContainer" v-if="questionIndex<quiz.questions.length" v-bind:key="questionIndex">
                     <header>
-                        <h1 class="title is-6">C#/.NET Quiz</h1>
+                        <h1 class="title is-6">Flutter Quiz</h1>
                         <!--progress-->
                         <div class="progressContainer">
                             <progress class="progress is-info is-small" :value="(questionIndex/quiz.questions.length)*100" max="100">{{(questionIndex/quiz.questions.length)*100}}%</progress>
@@ -286,103 +286,101 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-        var quizHtmlCss = {
-            user: "User",
+        var quiz = {
+            user: "Usuário",
             questions: [
                 {
-                    text: "O que significa HTML?",
+                    text: "O que é Flutter?",
                     responses: [
-                        { text: "Hyper Text Markup Language", correct: true },
-                        { text: "Home Tool Markup Language" },
-                        { text: "Hyperlinks and Text Markup Language" },
-                        { text: "Home Text Markup Language" }
+                        { text: "Uma linguagem de programação" },
+                        { text: "Um sistema operacional móvel" },
+                        { text: "Um kit de desenvolvimento de software de interface do usuário (SDK)", correct: true },
+                        { text: "Um sistema de controle de versão" }
                     ]
                 },
                 {
-                    text: "Qual tag é usada para vincular um arquivo CSS externo a um documento HTML?",
+                    text: "Qual linguagem de programação é usada no Flutter?",
                     responses: [
-                        { text: "<link>", correct: true },
-                        { text: "<style>" },
-                        { text: "<css>" },
-                        { text: "<script>" }
+                        { text: "Java" },
+                        { text: "C#" },
+                        { text: "Dart", correct: true },
+                        { text: "Python" }
                     ]
                 },
                 {
-                    text: "Em CSS, como você seleciona um elemento por sua classe?",
+                    text: "O que o Flutter permite que os desenvolvedores criem?",
                     responses: [
-                        { text: "#classname" },
-                        { text: ".classname", correct: true },
-                        { text: "classname" },
-                        { text: "element.classname" }
+                        { text: "Aplicativos móveis Android" },
+                        { text: "Aplicativos móveis iOS" },
+                        { text: "Aplicativos móveis multiplataforma (Android e iOS)", correct: true },
+                        { text: "Aplicativos de desktop" }
                     ]
                 },
                 {
-                    text: "Qual propriedade é usada para controlar o espaçamento entre elementos HTML?",
+                    text: "Quais dos seguintes são widgets no Flutter?",
                     responses: [
-                        { text: "padding" },
-                        { text: "margin", correct: true },
-                        { text: "spacing" },
-                        { text: "border" }
+                        { text: "Componentes gráficos de interface do usuário", correct: true },
+                        { text: "Bancos de dados relacionais" },
+                        { text: "Sistemas operacionais móveis" },
+                        { text: "Protocolos de transferência de hipertexto" }
                     ]
                 },
                 {
-                    text: "Qual é a tag HTML correta para criar uma lista não ordenada?",
+                    text: "O Flutter é uma estrutura de código aberto desenvolvida por qual empresa?",
                     responses: [
-                        { text: "<list>" },
-                        { text: "<ol>" },
-                        { text: "<ul>", correct: true },
-                        { text: "<dl>" }
+                        { text: "Google", correct: true },
+                        { text: "Microsoft" },
+                        { text: "Apple" },
+                        { text: "Facebook" }
                     ]
                 },
                 {
-                    text: "Em CSS, qual propriedade é usada para alterar a cor do texto de um elemento?",
+                    text: "Quais dos seguintes IDEs são comumente usados para desenvolver aplicativos Flutter?",
                     responses: [
-                        { text: "color", correct: true },
-                        { text: "text-color" },
-                        { text: "font-color" },
-                        { text: "text-style" }
+                        { text: "Visual Studio Code", correct: true },
+                        { text: "Eclipse" },
+                        { text: "Xcode" },
+                        { text: "Android Studio" }
                     ]
                 },
                 {
-                    text: "Qual é a tag HTML correta para inserir uma quebra de linha?",
+                    text: "O que são hot reload e hot restart no contexto do Flutter?",
                     responses: [
-                        { text: "<br>", correct: true },
-                        { text: "<break>" },
-                        { text: "<lb>" },
-                        { text: "<newline>" }
+                        { text: "Recursos para controle de versão de código" },
+                        { text: "Recursos para compilação de código nativo" },
+                        { text: "Recursos para gerenciamento de estado global" },
+                        { text: "Recursos para atualização rápida de código e interface do usuário", correct: true }
                     ]
                 },
                 {
-                    text: "Em CSS, como você seleciona um elemento com o id 'header'?",
+                    text: "Quais dos seguintes são benefícios do Flutter?",
                     responses: [
-                        { text: "element#header" },
-                        { text: "#header", correct: true },
-                        { text: ".header" },
-                        { text: "header" }
+                        { text: "Código legado" },
+                        { text: "Interface do usuário de aparência nativa" },
+                        { text: "Desenvolvimento mais rápido", correct: true },
+                        { text: "Suporte apenas para Android" }
                     ]
                 },
                 {
-                    text: "Qual propriedade CSS é usada para adicionar cantos arredondados a um elemento?",
+                    text: "O Flutter é baseado em qual linguagem de programação?",
                     responses: [
-                        { text: "border-radius", correct: true },
-                        { text: "corner-radius" },
-                        { text: "border-style" },
-                        { text: "corner-style" }
+                        { text: "JavaScript" },
+                        { text: "C++" },
+                        { text: "Dart", correct: true },
+                        { text: "Swift" }
                     ]
                 },
                 {
-                    text: "Qual é a tag HTML correta para criar um hyperlink?",
+                    text: "Quais dos seguintes são componentes de interface do usuário no Flutter?",
                     responses: [
-                        { text: "<a>", correct: true },
-                        { text: "<link>" },
-                        { text: "<href>" },
-                        { text: "<url>" }
+                        { text: "Widgets", correct: true },
+                        { text: "Serviços em nuvem" },
+                        { text: "Bancos de dados relacionais" },
+                        { text: "Compiladores" }
                     ]
                 }
             ]
         };
-
-
 
         var userResponseSkelaton = Array(quiz.questions.length).fill(null)
 

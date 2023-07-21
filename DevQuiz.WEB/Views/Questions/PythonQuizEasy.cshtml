@@ -1,5 +1,5 @@
 ﻿@page
-@model DevQuiz.WEB.Views.CSharpQuiz.CSharpQuizHardModel
+@model DevQuiz.WEB.Views.CSharpQuiz.CSharpQuizEasyModel
 @{
 }
 
@@ -222,7 +222,7 @@
                 <!--qusetionContainer-->
                 <div class="questionContainer" v-if="questionIndex<quiz.questions.length" v-bind:key="questionIndex">
                     <header>
-                        <h1 class="title is-6">C#/.NET Quiz</h1>
+                        <h1 class="title is-6">Python Quiz</h1>
                         <!--progress-->
                         <div class="progressContainer">
                             <progress class="progress is-info is-small" :value="(questionIndex/quiz.questions.length)*100" max="100">{{(questionIndex/quiz.questions.length)*100}}%</progress>
@@ -286,75 +286,102 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-        var quizUIUX = {
+        var quiz = {
             user: "User",
             questions: [
                 {
-                    text: "O que é UI (User Interface - Interface do Usuário)?",
+                    text: "Qual é a função usada para imprimir algo na saída em Python?",
                     responses: [
-                        { text: "É a experiência emocional que o usuário tem ao interagir com um produto ou serviço" },
-                        { text: "É o processo de projetar a estrutura e a funcionalidade de um produto ou serviço" },
-                        { text: "É a camada visual que possibilita a interação entre o usuário e o produto ou serviço", correct: true },
-                        { text: "É o estudo do comportamento e das características dos usuários de um produto ou serviço" }
+                        { text: "print()", correct: true },
+                        { text: "display()" },
+                        { text: "echo()" },
+                        { text: "println()" }
                     ]
                 },
                 {
-                    text: "O que é UX (User Experience - Experiência do Usuário)?",
+                    text: "O Python é uma linguagem de programação interpretada ou compilada?",
                     responses: [
-                        { text: "É a experiência emocional que o usuário tem ao interagir com um produto ou serviço", correct: true },
-                        { text: "É o processo de projetar a estrutura e a funcionalidade de um produto ou serviço" },
-                        { text: "É a camada visual que possibilita a interação entre o usuário e o produto ou serviço" },
-                        { text: "É o estudo do comportamento e das características dos usuários de um produto ou serviço" }
+                        { text: "Interpretada", correct: true },
+                        { text: "Compilada" }
                     ]
                 },
                 {
-                    text: "O que é um wireframe?",
+                    text: "Como você define uma função em Python?",
                     responses: [
-                        { text: "É um protótipo funcional de um produto ou serviço" },
-                        { text: "É um desenho artístico que representa a interface do usuário" },
-                        { text: "É um esboço de baixa fidelidade que representa a estrutura e o layout de um produto ou serviço", correct: true },
-                        { text: "É um modelo 3D que simula a interação do usuário com um produto ou serviço" }
+                        { text: "function myFunction():" },
+                        { text: "def myFunction():", correct: true },
+                        { text: "define myFunction():" },
+                        { text: "func myFunction():" }
                     ]
                 },
                 {
-                    text: "Quais são os princípios básicos de usabilidade?",
+                    text: "Qual é o operador usado para realizar uma potência em Python?",
                     responses: [
-                        { text: "Eficiência e Produtividade" },
-                        { text: "Estética e Design" },
-                        { text: "Facilidade de Aprendizado e Satisfação do Usuário", correct: true },
-                        { text: "Experiência Emocional e Funcionalidade" }
+                        { text: "+=" },
+                        { text: "*" },
+                        { text: "^", correct: true },
+                        { text: "%" }
                     ]
                 },
                 {
-                    text: "O que é acessibilidade em UI/UX?",
+                    text: "Qual é a forma correta de verificar se um elemento está presente em uma lista em Python?",
                     responses: [
-                        { text: "É a facilidade de acesso às informações do produto ou serviço" },
-                        { text: "É a capacidade de um produto ou serviço ser utilizado por pessoas com deficiência ou necessidades especiais", correct: true },
-                        { text: "É a experiência emocional que o usuário tem ao interagir com um produto ou serviço" },
-                        { text: "É a interação entre o usuário e o produto ou serviço" }
+                        { text: "check(element, list)" },
+                        { text: "element in list", correct: true },
+                        { text: "list.contains(element)" },
+                        { text: "list(element)" }
                     ]
                 },
                 {
-                    text: "Quando se trata de UI/UX, o que é um teste de usabilidade?",
+                    text: "Como você cria um loop for que itera sobre os elementos de uma lista em Python?",
                     responses: [
-                        { text: "É a avaliação do design visual de um produto ou serviço" },
-                        { text: "É a verificação de bugs e erros em um produto ou serviço" },
-                        { text: "É a análise da experiência emocional do usuário com um produto ou serviço" },
-                        { text: "É a avaliação da facilidade de uso e eficiência de um produto ou serviço por usuários reais", correct: true }
+                        { text: "for i = 0 to len(list):" },
+                        { text: "for element in list:", correct: true },
+                        { text: "for i in range(list):" },
+                        { text: "foreach element in list:" }
                     ]
                 },
                 {
-                    text: "Em UI/UX, o que é o mapa de empatia?",
+                    text: "Qual é a função usada para obter o comprimento de uma string em Python?",
                     responses: [
-                        { text: "É uma técnica de mapeamento de interações entre usuários e um produto ou serviço" },
-                        { text: "É um diagrama que mostra o fluxo de navegação de um produto ou serviço" },
-                        { text: "É uma ferramenta para identificar e compreender as necessidades, desejos e frustrações dos usuários", correct: true },
-                        { text: "É uma representação visual de todos os recursos e funcionalidades de um produto ou serviço" }
+                        { text: "len()", correct: true },
+                        { text: "length()" },
+                        { text: "str_length()" },
+                        { text: "strlen()" }
                     ]
+                },
+                {
+                    text: "Qual é a maneira correta de criar um comentário de uma única linha em Python?",
+                    responses: [
+                        { text: "//" },
+                        { text: "#", correct: true },
+                        { text: "--" },
+                        { text: "/* */" }
+                    ]
+                },
+                {
+                    text: "Qual é o método usado para converter uma string para letras minúsculas em Python?",
+                    responses: [
+                        { text: "string.lower()", correct: true },
+                        { text: "string.toLower()" },
+                        { text: "string.lowerCase()" },
+                        { text: "string.caseLower()" }
+                    ]
+                },
+                {
+                    text: "Qual é a função usada para converter um valor para o tipo inteiro em Python?",
+                    responses: [
+                        { text: "int()", correct: true },
+                        { text: "integer()" },
+                        { text: "to_int()" },
+                        { text: "parse_int()" }
+                    ]
+                }
+            ]
+        };
 
 
-
-                var userResponseSkelaton = Array(quiz.questions.length).fill(null)
+        var userResponseSkelaton = Array(quiz.questions.length).fill(null)
 
         var app = new Vue({
             el: "#app",

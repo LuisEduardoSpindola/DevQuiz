@@ -1,5 +1,5 @@
 ﻿@page
-@model DevQuiz.WEB.Views.CSharpQuiz.CSharpQuizMediumModel
+@model DevQuiz.WEB.Views.CSharpQuiz.CSharpQuizHardModel
 @{
 }
 
@@ -222,7 +222,7 @@
                 <!--qusetionContainer-->
                 <div class="questionContainer" v-if="questionIndex<quiz.questions.length" v-bind:key="questionIndex">
                     <header>
-                        <h1 class="title is-6">C#/.NET Quiz</h1>
+                        <h1 class="title is-6">Html/Css Quiz</h1>
                         <!--progress-->
                         <div class="progressContainer">
                             <progress class="progress is-info is-small" :value="(questionIndex/quiz.questions.length)*100" max="100">{{(questionIndex/quiz.questions.length)*100}}%</progress>
@@ -286,102 +286,101 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-        var quizFlutter = {
+        var quiz = {
             user: "User",
             questions: [
                 {
-                    text: "O que é Flutter?",
+                    text: "Qual é a função da tag <head> em um documento HTML?",
                     responses: [
-                        { text: "Um framework para desenvolvimento de aplicativos móveis", correct: true },
-                        { text: "Um editor de texto" },
-                        { text: "Uma linguagem de programação" },
-                        { text: "Um sistema operacional" }
+                        { text: "Exibir o conteúdo principal da página" },
+                        { text: "Definir o layout da página" },
+                        { text: "Definir o título da página e importar recursos externos, como folhas de estilo e scripts", correct: true },
+                        { text: "Criar links para outras páginas" }
                     ]
                 },
                 {
-                    text: "Qual linguagem de programação é usada no Flutter?",
+                    text: "Em CSS, como você seleciona um elemento com a classe 'destaque'?",
                     responses: [
-                        { text: "Java" },
-                        { text: "Python" },
-                        { text: "Dart", correct: true },
-                        { text: "JavaScript" }
+                        { text: "#destaque" },
+                        { text: ".destaque", correct: true },
+                        { text: "destaque" },
+                        { text: "<destaque>" }
                     ]
                 },
                 {
-                    text: "O que é um Widget no contexto do Flutter?",
+                    text: "O que a propriedade 'display: none;' faz em CSS?",
                     responses: [
-                        { text: "Uma biblioteca de código" },
-                        { text: "Um tema visual" },
-                        { text: "Um componente de interface do usuário", correct: true },
-                        { text: "Um arquivo de configuração" }
+                        { text: "Altera o tamanho do elemento para zero" },
+                        { text: "Torna o elemento totalmente transparente" },
+                        { text: "Remove o elemento do fluxo do documento, tornando-o invisível e sem espaço na página", correct: true },
+                        { text: "Aplica um efeito de animação para ocultar o elemento" }
                     ]
                 },
                 {
-                    text: "Como você define um botão clicável no Flutter?",
+                    text: "Qual é a função da propriedade 'position' em CSS?",
                     responses: [
-                        { text: "button: click" },
-                        { text: "button: press" },
-                        { text: "button: onTap", correct: true },
-                        { text: "button: activate" }
+                        { text: "Definir a posição vertical do elemento na página" },
+                        { text: "Definir a posição horizontal do elemento na página" },
+                        { text: "Controlar a posição do elemento em relação a seu elemento pai ou ao viewport", correct: true },
+                        { text: "Definir o tamanho do elemento na página" }
                     ]
                 },
                 {
-                    text: "O que é o Flutter Hot Reload?",
+                    text: "Em CSS, como você seleciona todos os elementos <p> dentro de um elemento <div>?",
                     responses: [
-                        { text: "Uma função para reiniciar o aplicativo" },
-                        { text: "Um atalho de teclado" },
-                        { text: "Uma ferramenta de depuração" },
-                        { text: "Um recurso para visualizar alterações no aplicativo em tempo real", correct: true }
+                        { text: "div p" },
+                        { text: "div + p" },
+                        { text: "div > p", correct: true },
+                        { text: "p < div" }
                     ]
                 },
                 {
-                    text: "Qual é o elemento raiz de uma árvore de widgets no Flutter?",
+                    text: "O que a propriedade 'box-sizing: border-box;' faz em CSS?",
                     responses: [
-                        { text: "App" },
-                        { text: "Root" },
-                        { text: "Main" },
-                        { text: "MaterialApp", correct: true }
+                        { text: "Adiciona uma borda ao redor do elemento" },
+                        { text: "Torna o elemento um bloco de caixa" },
+                        { text: "Força o elemento a ter dimensões iguais para largura e altura" },
+                        { text: "Faz com que as dimensões do elemento incluam o preenchimento e a borda, e não apenas o conteúdo", correct: true }
                     ]
                 },
                 {
-                    text: "O que o Flutter oferece para criar layouts flexíveis e responsivos?",
+                    text: "Qual é a finalidade da propriedade 'z-index' em CSS?",
                     responses: [
-                        { text: "Grids" },
-                        { text: "Flexbox" },
-                        { text: "Columns" },
-                        { text: "Widgets Flexíveis", correct: true }
+                        { text: "Definir a cor de fundo de um elemento" },
+                        { text: "Controlar a opacidade de um elemento" },
+                        { text: "Definir a ordem de empilhamento dos elementos, especificando sua posição em relação ao eixo Z", correct: true },
+                        { text: "Definir o tamanho de fonte do texto de um elemento" }
                     ]
                 },
                 {
-                    text: "Qual widget é usado para criar uma lista rolável no Flutter?",
+                    text: "Em HTML, como você cria um link para um email?",
                     responses: [
-                        { text: "ScrollList" },
-                        { text: "List" },
-                        { text: "ScrollView" },
-                        { text: "ListView", correct: true }
+                        { text: "<a>email@example.com</a>" },
+                        { text: "<link>email@example.com</link>" },
+                        { text: "<a href='mailto:email@example.com'>Envie um email</a>", correct: true },
+                        { text: "<mail>email@example.com</mail>" }
                     ]
                 },
                 {
-                    text: "Como você realiza navegação entre telas no Flutter?",
+                    text: "Qual é a função da propriedade 'flex' em CSS?",
                     responses: [
-                        { text: "Navigator", correct: true },
-                        { text: "Router" },
-                        { text: "Screen" },
-                        { text: "Route" }
+                        { text: "Controlar o espaçamento interno de um elemento" },
+                        { text: "Definir o tamanho máximo de um elemento" },
+                        { text: "Definir a direção do fluxo dos elementos filhos de um contêiner flexível" },
+                        { text: "Controlar a capacidade de um elemento se esticar ou encolher para preencher o espaço disponível", correct: true }
                     ]
                 },
                 {
-                    text: "Qual é a função do pubspec.yaml no Flutter?",
+                    text: "Como você define uma cor semi-transparente em CSS?",
                     responses: [
-                        { text: "Definir o ícone do aplicativo" },
-                        { text: "Gerenciar dependências do projeto", correct: true },
-                        { text: "Definir a cor de fundo do aplicativo" },
-                        { text: "Configurar as animações do aplicativo" }
+                        { text: "transparent" },
+                        { text: "rgba(255, 255, 255, 0.5)", correct: true },
+                        { text: "hexa(FF, FF, FF, 0.5)" },
+                        { text: "opacidade: 0.5" }
                     ]
                 }
             ]
         };
-
 
 
         var userResponseSkelaton = Array(quiz.questions.length).fill(null)

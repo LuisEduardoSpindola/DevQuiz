@@ -1,5 +1,5 @@
 ﻿@page
-@model DevQuiz.WEB.Views.CSharpQuiz.CSharpQuizHardModel
+@model DevQuiz.WEB.Views.CSharpQuiz.CSharpQuizEasyModel
 @{
 }
 
@@ -222,7 +222,7 @@
                 <!--qusetionContainer-->
                 <div class="questionContainer" v-if="questionIndex<quiz.questions.length" v-bind:key="questionIndex">
                     <header>
-                        <h1 class="title is-6">C#/.NET Quiz</h1>
+                        <h1 class="title is-6">UI/UX Quiz</h1>
                         <!--progress-->
                         <div class="progressContainer">
                             <progress class="progress is-info is-small" :value="(questionIndex/quiz.questions.length)*100" max="100">{{(questionIndex/quiz.questions.length)*100}}%</progress>
@@ -286,102 +286,101 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-        var quizCSharp = {
+        var quiz = {
             user: "User",
             questions: [
                 {
-                    text: "Qual é o objetivo do LINQ (Language Integrated Query) em C#?",
+                    text: "O que é .NET?",
                     responses: [
-                        { text: "Permitir a criação de interfaces gráficas" },
-                        { text: "Facilitar a comunicação entre servidores" },
-                        { text: "Simplificar consultas e operações com coleções de dados", correct: true },
-                        { text: "Criar animações em aplicativos" }
+                        { text: "Um sistema operacional" },
+                        { text: "Hyper text transfer protocol" },
+                        { text: "Uma estrutura de desenvolvimento de software", correct: true },
+                        { text: "Nenhuma das opções acima" }
                     ]
                 },
                 {
-                    text: "O que é um delegado em C#?",
+                    text: "Qual dos seguintes é um componente essencial do .NET Framework?",
                     responses: [
-                        { text: "Um tipo de dado que representa um valor" },
-                        { text: "Um mecanismo de controle de acesso a dados" },
-                        { text: "Um tipo de classe especializada em operações matemáticas" },
-                        { text: "Um tipo de referência a um método com uma assinatura específica", correct: true }
+                        { text: "Common Language Runtime (CLR)", correct: true },
+                        { text: "Java Development Kit (JDK)" },
+                        { text: "Python Interpreter" },
+                        { text: "HTML5" }
                     ]
                 },
                 {
-                    text: "Em C#, como você pode criar uma classe abstrata?",
+                    text: "Qual linguagem é comumente usada para desenvolver aplicativos no .NET Framework?",
                     responses: [
-                        { text: "Usando a palavra-chave 'abstract' antes da definição da classe", correct: true },
-                        { text: "Definindo a classe dentro de um namespace abstrato" },
-                        { text: "Usando a palavra-chave 'abstract' antes do método construtor" },
-                        { text: "Usando a palavra-chave 'abstract' antes do nome da classe" }
+                        { text: "Java" },
+                        { text: "C++" },
+                        { text: "C#", correct: true },
+                        { text: "PHP" }
                     ]
                 },
                 {
-                    text: "Qual é a diferença entre um método virtual e um método abstrato em C#?",
+                    text: "Qual dos seguintes é um ambiente de desenvolvimento integrado (IDE) amplamente utilizado para projetos .NET?",
                     responses: [
-                        { text: "Métodos virtuais podem ser substituídos em classes derivadas, enquanto métodos abstratos devem ser implementados nas classes derivadas", correct: true },
-                        { text: "Métodos abstratos podem ser substituídos em classes derivadas, enquanto métodos virtuais devem ser implementados nas classes derivadas" },
-                        { text: "Métodos virtuais só podem ser chamados por outros métodos virtuais, enquanto métodos abstratos podem ser chamados por qualquer método" },
-                        { text: "Métodos abstratos só podem ser chamados por outros métodos abstratos, enquanto métodos virtuais podem ser chamados por qualquer método" }
+                        { text: "Eclipse" },
+                        { text: "Visual Studio", correct: true },
+                        { text: "IntelliJ IDEA" },
+                        { text: "Sublime Text" }
                     ]
                 },
                 {
-                    text: "Em C#, como você pode lançar explicitamente uma exceção?",
+                    text: "Qual dos seguintes tipos de aplicativos .NET é adequado para executar em várias plataformas, incluindo Windows, macOS e Linux?",
                     responses: [
-                        { text: "Usando a palavra-chave 'exception'", correct: true },
-                        { text: "Usando a palavra-chave 'throw'" },
-                        { text: "Usando a palavra-chave 'catch'" },
-                        { text: "Usando a palavra-chave 'try'" }
+                        { text: "Aplicativos de Console" },
+                        { text: "Aplicativos Windows Forms" },
+                        { text: "Aplicativos WPF (Windows Presentation Foundation)" },
+                        { text: "Aplicativos .NET Core", correct: true }
                     ]
                 },
                 {
-                    text: "Qual é a finalidade do using em C#?",
+                    text: "O que é ASP.NET?",
                     responses: [
-                        { text: "Criar aliases para namespaces" },
-                        { text: "Incluir diretivas de pré-processador" },
-                        { text: "Importar namespaces para uso no código", correct: true },
-                        { text: "Definir constantes e variáveis globais" }
+                        { text: "Uma linguagem de marcação para criar páginas web estáticas" },
+                        { text: "Uma estrutura para criar aplicativos web usando C#", correct: true },
+                        { text: "Uma ferramenta de edição de imagens" },
+                        { text: "Uma biblioteca de jogos em 3D" }
                     ]
                 },
                 {
-                    text: "O que é o Dapper em C#?",
+                    text: "Qual dos seguintes é um mecanismo usado no .NET Framework para organizar e gerenciar dados de forma hierárquica?",
                     responses: [
+                        { text: "Entity Framework", correct: true },
+                        { text: "LINQ (Language Integrated Query)" },
+                        { text: "ADO.NET (Active Data Objects)" },
+                        { text: "ASP.NET Core" }
+                    ]
+                },
+                {
+                    text: "Quais dos seguintes são os principais pilares do .NET Core?",
+                    responses: [
+                        { text: "Common Language Runtime (CLR) e Framework Class Library (FCL)" },
+                        { text: "Linguagens de Programação e Compilador Just-In-Time (JIT)" },
+                        { text: "Common Language Runtime (CLR) e Biblioteca Unificada (UCL)" },
+                        { text: "Linguagens de Programação e Framework Class Library (FCL)", correct: true }
+                    ]
+                },
+                {
+                    text: "O que é o NuGet no ecossistema .NET?",
+                    responses: [
+                        { text: "Um compilador para C#" },
+                        { text: "Um repositório de código-fonte aberto" },
                         { text: "Um sistema de controle de versão" },
-                        { text: "Um framework para criação de APIs REST" },
-                        { text: "Um ORM (Object-Relational Mapping) de código aberto para acesso a banco de dados", correct: true },
-                        { text: "Um mecanismo de injeção de dependência" }
+                        { text: "Um gerenciador de pacotes", correct: true }
                     ]
                 },
                 {
-                    text: "Qual é a diferença entre o método Equals() e o operador == em C#?",
+                    text: "Qual dos seguintes é um serviço de hospedagem em nuvem da Microsoft para aplicativos .NET?",
                     responses: [
-                        { text: "Equals() compara os valores de dois objetos, enquanto o operador == compara as referências dos objetos", correct: true },
-                        { text: "Equals() é usado para comparar tipos primitivos, enquanto o operador == é usado para comparar objetos" },
-                        { text: "Equals() compara as referências dos objetos, enquanto o operador == compara os valores dos objetos" },
-                        { text: "Equals() é usado para comparar objetos, enquanto o operador == é usado para comparar tipos primitivos" }
-                    ]
-                },
-                {
-                    text: "Em C#, o que é a palavra-chave async usada para fazer?",
-                    responses: [
-                        { text: "Definir uma classe como assíncrona" },
-                        { text: "Iniciar uma tarefa assíncrona" },
-                        { text: "Criar um método assíncrono", correct: true },
-                        { text: "Definir uma interface como assíncrona" }
-                    ]
-                },
-                {
-                    text: "Qual é o objetivo da palavra-chave sealed em C#?",
-                    responses: [
-                        { text: "Impedir que uma classe seja estendida (herdada) por outras classes", correct: true },
-                        { text: "Impedir que uma classe seja instanciada" },
-                        { text: "Impedir que uma classe seja usada em threads assíncronas" },
-                        { text: "Impedir que uma classe seja compilada" }
+                        { text: "Azure App Service", correct: true },
+                        { text: "AWS Lambda" },
+                        { text: "Google Cloud Platform (GCP)" },
+                        { text: "Heroku" }
                     ]
                 }
             ]
         };
-
 
         var userResponseSkelaton = Array(quiz.questions.length).fill(null)
 

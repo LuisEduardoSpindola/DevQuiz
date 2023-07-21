@@ -222,7 +222,7 @@
                 <!--qusetionContainer-->
                 <div class="questionContainer" v-if="questionIndex<quiz.questions.length" v-bind:key="questionIndex">
                     <header>
-                        <h1 class="title is-6">C#/.NET Quiz</h1>
+                        <h1 class="title is-6">Html/Css Quiz</h1>
                         <!--progress-->
                         <div class="progressContainer">
                             <progress class="progress is-info is-small" :value="(questionIndex/quiz.questions.length)*100" max="100">{{(questionIndex/quiz.questions.length)*100}}%</progress>
@@ -286,101 +286,102 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-        var quizCSharp = {
+        var quiz = {
             user: "User",
             questions: [
                 {
-                    text: "O que é C#?",
+                    text: "O que significa HTML?",
                     responses: [
-                        { text: "Uma biblioteca de design gráfico" },
-                        { text: "Uma linguagem de programação", correct: true },
-                        { text: "Uma ferramenta de edição de imagens" },
-                        { text: "Um sistema operacional" }
+                        { text: "Hyper Text Markup Language", correct: true },
+                        { text: "Home Tool Markup Language" },
+                        { text: "Hyperlinks and Text Markup Language" },
+                        { text: "Home Text Markup Language" }
                     ]
                 },
                 {
-                    text: "Qual é a palavra-chave usada para declarar uma variável em C#?",
+                    text: "Qual tag é usada para vincular um arquivo CSS externo a um documento HTML?",
                     responses: [
-                        { text: "variable" },
-                        { text: "var" },
-                        { text: "int" },
-                        { text: "string", correct: true }
+                        { text: "<link>", correct: true },
+                        { text: "<style>" },
+                        { text: "<css>" },
+                        { text: "<script>" }
                     ]
                 },
                 {
-                    text: "Em C#, qual é o operador de igualdade?",
+                    text: "Em CSS, como você seleciona um elemento por sua classe?",
                     responses: [
-                        { text: "==", correct: true },
-                        { text: "=" },
-                        { text: "===" },
-                        { text: "!=" }
+                        { text: "#classname" },
+                        { text: ".classname", correct: true },
+                        { text: "classname" },
+                        { text: "element.classname" }
                     ]
                 },
                 {
-                    text: "Qual dos seguintes é um tipo de dado numérico em C#?",
+                    text: "Qual propriedade é usada para controlar o espaçamento entre elementos HTML?",
                     responses: [
-                        { text: "text" },
-                        { text: "bool" },
-                        { text: "float" },
-                        { text: "int", correct: true }
+                        { text: "padding" },
+                        { text: "margin", correct: true },
+                        { text: "spacing" },
+                        { text: "border" }
                     ]
                 },
                 {
-                    text: "Qual é o nome do ambiente de desenvolvimento integrado (IDE) oficial da Microsoft para desenvolvimento em C#?",
+                    text: "Qual é a tag HTML correta para criar uma lista não ordenada?",
                     responses: [
-                        { text: "Visual Basic" },
-                        { text: "Visual Studio", correct: true },
-                        { text: "Code::Blocks" },
-                        { text: "Eclipse" }
+                        { text: "<list>" },
+                        { text: "<ol>" },
+                        { text: "<ul>", correct: true },
+                        { text: "<dl>" }
                     ]
                 },
                 {
-                    text: "Em C#, como você declara um método chamado 'Somar' que recebe dois parâmetros inteiros e retorna a soma deles?",
+                    text: "Em CSS, qual propriedade é usada para alterar a cor do texto de um elemento?",
                     responses: [
-                        { text: "function int Somar(int a, int b) { return a + b; }" },
-                        { text: "void Somar(int a, int b) { return a + b; }" },
-                        { text: "int Somar(int a, int b) { return a + b; }", correct: true },
-                        { text: "def Somar(a: int, b: int) -> int: return a + b" }
+                        { text: "color", correct: true },
+                        { text: "text-color" },
+                        { text: "font-color" },
+                        { text: "text-style" }
                     ]
                 },
                 {
-                    text: "Qual é o namespace padrão para trabalhar com manipulação de arquivos em C#?",
+                    text: "Qual é a tag HTML correta para inserir uma quebra de linha?",
                     responses: [
-                        { text: "System.Text" },
-                        { text: "System.IO", correct: true },
-                        { text: "System.Net" },
-                        { text: "System.File" }
+                        { text: "<br>", correct: true },
+                        { text: "<break>" },
+                        { text: "<lb>" },
+                        { text: "<newline>" }
                     ]
                 },
                 {
-                    text: "Em C#, como você converte uma string em um número inteiro?",
+                    text: "Em CSS, como você seleciona um elemento com o id 'header'?",
                     responses: [
-                        { text: "Convert.ToInt(string)" },
-                        { text: "string.ToInt()" },
-                        { text: "Int.Parse(string)", correct: true },
-                        { text: "string.ParseInt()" }
+                        { text: "element#header" },
+                        { text: "#header", correct: true },
+                        { text: ".header" },
+                        { text: "header" }
                     ]
                 },
                 {
-                    text: "Em C#, qual é a sintaxe correta para criar uma lista de inteiros chamada 'numeros'?",
+                    text: "Qual propriedade CSS é usada para adicionar cantos arredondados a um elemento?",
                     responses: [
-                        { text: "List<int> numeros = new List<int>();", correct: true },
-                        { text: "List<int> numeros = [];" },
-                        { text: "List numeros = new List<int>();" },
-                        { text: "var numeros = new List<int>();" }
+                        { text: "border-radius", correct: true },
+                        { text: "corner-radius" },
+                        { text: "border-style" },
+                        { text: "corner-style" }
                     ]
                 },
                 {
-                    text: "Qual é o operador de atribuição em C#?",
+                    text: "Qual é a tag HTML correta para criar um hyperlink?",
                     responses: [
-                        { text: "==" },
-                        { text: "=", correct: true },
-                        { text: ":=" },
-                        { text: "===" }
+                        { text: "<a>", correct: true },
+                        { text: "<link>" },
+                        { text: "<href>" },
+                        { text: "<url>" }
                     ]
                 }
             ]
         };
+
 
 
         var userResponseSkelaton = Array(quiz.questions.length).fill(null)

@@ -1,5 +1,5 @@
 ﻿@page
-@model DevQuiz.WEB.Views.CSharpQuiz.CSharpQuizEasyModel
+@model DevQuiz.WEB.Views.CSharpQuiz.CSharpQuizMediumModel
 @{
 }
 
@@ -222,7 +222,7 @@
                 <!--qusetionContainer-->
                 <div class="questionContainer" v-if="questionIndex<quiz.questions.length" v-bind:key="questionIndex">
                     <header>
-                        <h1 class="title is-6">C#/.NET Quiz</h1>
+                        <h1 class="title is-6">SQL Quiz</h1>
                         <!--progress-->
                         <div class="progressContainer">
                             <progress class="progress is-info is-small" :value="(questionIndex/quiz.questions.length)*100" max="100">{{(questionIndex/quiz.questions.length)*100}}%</progress>
@@ -287,98 +287,100 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
         var quiz = {
-            user: "User",
-            questions: [
-                {
-                    text: "Qual é a função usada para imprimir algo na saída em Python?",
-                    responses: [
-                        { text: "print()", correct: true },
-                        { text: "display()" },
-                        { text: "echo()" },
-                        { text: "println()" }
-                    ]
-                },
-                {
-                    text: "O Python é uma linguagem de programação interpretada ou compilada?",
-                    responses: [
-                        { text: "Interpretada", correct: true },
-                        { text: "Compilada" }
-                    ]
-                },
-                {
-                    text: "Como você define uma função em Python?",
-                    responses: [
-                        { text: "function myFunction():" },
-                        { text: "def myFunction():", correct: true },
-                        { text: "define myFunction():" },
-                        { text: "func myFunction():" }
-                    ]
-                },
-                {
-                    text: "Qual é o operador usado para realizar uma potência em Python?",
-                    responses: [
-                        { text: "+=" },
-                        { text: "*" },
-                        { text: "^", correct: true },
-                        { text: "%" }
-                    ]
-                },
-                {
-                    text: "Qual é a forma correta de verificar se um elemento está presente em uma lista em Python?",
-                    responses: [
-                        { text: "check(element, list)" },
-                        { text: "element in list", correct: true },
-                        { text: "list.contains(element)" },
-                        { text: "list(element)" }
-                    ]
-                },
-                {
-                    text: "Como você cria um loop for que itera sobre os elementos de uma lista em Python?",
-                    responses: [
-                        { text: "for i = 0 to len(list):" },
-                        { text: "for element in list:", correct: true },
-                        { text: "for i in range(list):" },
-                        { text: "foreach element in list:" }
-                    ]
-                },
-                {
-                    text: "Qual é a função usada para obter o comprimento de uma string em Python?",
-                    responses: [
-                        { text: "len()", correct: true },
-                        { text: "length()" },
-                        { text: "str_length()" },
-                        { text: "strlen()" }
-                    ]
-                },
-                {
-                    text: "Qual é a maneira correta de criar um comentário de uma única linha em Python?",
-                    responses: [
-                        { text: "//" },
-                        { text: "#", correct: true },
-                        { text: "--" },
-                        { text: "/* */" }
-                    ]
-                },
-                {
-                    text: "Qual é o método usado para converter uma string para letras minúsculas em Python?",
-                    responses: [
-                        { text: "string.lower()", correct: true },
-                        { text: "string.toLower()" },
-                        { text: "string.lowerCase()" },
-                        { text: "string.caseLower()" }
-                    ]
-                },
-                {
-                    text: "Qual é a função usada para converter um valor para o tipo inteiro em Python?",
-                    responses: [
-                        { text: "int()", correct: true },
-                        { text: "integer()" },
-                        { text: "to_int()" },
-                        { text: "parse_int()" }
-                    ]
-                }
+    user: "User",
+    questions: [
+        {
+            text: "O que significa SQL?",
+            responses: [
+                { text: "Structured Query Language", correct: true },
+                { text: "Simple Query Language" },
+                { text: "System Query Language" },
+                { text: "Structured Question Language" }
             ]
-        };
+        },
+        {
+            text: "Qual é a finalidade do SQL?",
+            responses: [
+                { text: "Criar sites e aplicativos" },
+                { text: "Programar robôs" },
+                { text: "Gerenciar e manipular bancos de dados", correct: true },
+                { text: "Criar interfaces de usuário" }
+            ]
+        },
+        {
+            text: "Qual comando SQL é usado para selecionar dados de uma tabela?",
+            responses: [
+                { text: "SELECT", correct: true },
+                { text: "UPDATE" },
+                { text: "DELETE" },
+                { text: "INSERT" }
+            ]
+        },
+        {
+            text: "Qual comando SQL é usado para atualizar dados em uma tabela?",
+            responses: [
+                { text: "UPDATE", correct: true },
+                { text: "SELECT" },
+                { text: "DELETE" },
+                { text: "INSERT" }
+            ]
+        },
+        {
+            text: "Qual comando SQL é usado para inserir novos registros em uma tabela?",
+            responses: [
+                { text: "INSERT", correct: true },
+                { text: "SELECT" },
+                { text: "UPDATE" },
+                { text: "DELETE" }
+            ]
+        },
+        {
+            text: "Qual comando SQL é usado para excluir registros de uma tabela?",
+            responses: [
+                { text: "DELETE", correct: true },
+                { text: "SELECT" },
+                { text: "UPDATE" },
+                { text: "INSERT" }
+            ]
+        },
+        {
+            text: "Qual cláusula SQL é usada para filtrar registros em uma consulta?",
+            responses: [
+                { text: "FILTER BY" },
+                { text: "HAVING" },
+                { text: "WHERE", correct: true },
+                { text: "GROUP BY" }
+            ]
+        },
+        {
+            text: "Qual cláusula SQL é usada para ordenar os resultados de uma consulta?",
+            responses: [
+                { text: "SORT BY" },
+                { text: "GROUP BY" },
+                { text: "ORDER BY", correct: true },
+                { text: "FILTER BY" }
+            ]
+        },
+        {
+            text: "Qual cláusula SQL é usada para agrupar os resultados de uma consulta?",
+            responses: [
+                { text: "FILTER BY" },
+                { text: "ORDER BY" },
+                { text: "GROUP BY", correct: true },
+                { text: "SORT BY" }
+            ]
+        },
+        {
+            text: "Qual comando SQL é usado para criar uma nova tabela?",
+            responses: [
+                { text: "ALTER TABLE" },
+                { text: "CREATE TABLE", correct: true },
+                { text: "DROP TABLE" },
+                { text: "UPDATE TABLE" }
+            ]
+        }
+    ]
+};
 
 
         var userResponseSkelaton = Array(quiz.questions.length).fill(null)

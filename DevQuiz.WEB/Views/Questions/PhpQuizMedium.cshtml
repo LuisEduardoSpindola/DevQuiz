@@ -1,5 +1,5 @@
 ﻿@page
-@model DevQuiz.WEB.Views.CSharpQuiz.CSharpQuizEasyModel
+@model DevQuiz.WEB.Views.CSharpQuiz.CSharpQuizMediumModel
 @{
 }
 
@@ -222,7 +222,7 @@
                 <!--qusetionContainer-->
                 <div class="questionContainer" v-if="questionIndex<quiz.questions.length" v-bind:key="questionIndex">
                     <header>
-                        <h1 class="title is-6">C#/.NET Quiz</h1>
+                        <h1 class="title is-6">PHP Quiz</h1>
                         <!--progress-->
                         <div class="progressContainer">
                             <progress class="progress is-info is-small" :value="(questionIndex/quiz.questions.length)*100" max="100">{{(questionIndex/quiz.questions.length)*100}}%</progress>
@@ -286,101 +286,101 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-        var quizSQL = {
-            user: "User",
-            questions: [
-                {
-                    text: "O que significa SQL?",
-                    responses: [
-                        { text: "Simple Query Language" },
-                        { text: "Structured Query Language", correct: true },
-                        { text: "Server Query Language" },
-                        { text: "Standard Query Language" }
-                    ]
-                },
-                {
-                    text: "Qual é o comando SQL usado para selecionar dados de uma tabela?",
-                    responses: [
-                        { text: "GET" },
-                        { text: "SELECT", correct: true },
-                        { text: "FETCH" },
-                        { text: "RETRIEVE" }
-                    ]
-                },
-                {
-                    text: "Qual é o comando SQL usado para atualizar dados em uma tabela?",
-                    responses: [
-                        { text: "UPDATE", correct: true },
-                        { text: "INSERT" },
-                        { text: "MODIFY" },
-                        { text: "ALTER" }
-                    ]
-                },
-                {
-                    text: "Qual é o comando SQL usado para remover dados de uma tabela?",
-                    responses: [
-                        { text: "DELETE", correct: true },
-                        { text: "REMOVE" },
-                        { text: "DROP" },
-                        { text: "CLEAR" }
-                    ]
-                },
-                {
-                    text: "Qual é o operador SQL usado para combinar condições em uma cláusula WHERE?",
-                    responses: [
-                        { text: "OR" },
-                        { text: "NOT" },
-                        { text: "AND", correct: true },
-                        { text: "XOR" }
-                    ]
-                },
-                {
-                    text: "Qual é o comando SQL usado para criar uma nova tabela?",
-                    responses: [
-                        { text: "CREATE TABLE", correct: true },
-                        { text: "NEW TABLE" },
-                        { text: "MAKE TABLE" },
-                        { text: "GENERATE TABLE" }
-                    ]
-                },
-                {
-                    text: "Qual é o comando SQL usado para adicionar uma nova coluna a uma tabela existente?",
-                    responses: [
-                        { text: "ALTER COLUMN" },
-                        { text: "ADD COLUMN", correct: true },
-                        { text: "MODIFY COLUMN" },
-                        { text: "UPDATE COLUMN" }
-                    ]
-                },
-                {
-                    text: "Qual é o comando SQL usado para ordenar os resultados em ordem ascendente?",
-                    responses: [
-                        { text: "SORT BY" },
-                        { text: "ORDER BY", correct: true },
-                        { text: "GROUP BY" },
-                        { text: "ASCEND BY" }
-                    ]
-                },
-                {
-                    text: "Qual é o comando SQL usado para contar o número de registros em uma tabela?",
-                    responses: [
-                        { text: "COUNT(*)", correct: true },
-                        { text: "SELECT COUNT()" },
-                        { text: "TOTAL()" },
-                        { text: "SUM()" }
-                    ]
-                },
-                {
-                    text: "Qual é o comando SQL usado para retornar apenas registros distintos?",
-                    responses: [
-                        { text: "UNIQUE" },
-                        { text: "DISTINCT", correct: true },
-                        { text: "DIFFERENT" },
-                        { text: "SINGLE" }
-                    ]
-                }
+        var quiz = {
+    user: "User",
+    questions: [
+        {
+            text: "O que PHP significa?",
+            responses: [
+                { text: "Páginas Hipertexto Pré-processadas" },
+                { text: "PHP: Hipertexto Pré-processador", correct: true },
+                { text: "Pré-processador Home Page" },
+                { text: "Páginas Hipertexto Processadas" }
             ]
-        };
+        },
+        {
+            text: "Qual palavra-chave é usada para declarar uma variável em PHP?",
+            responses: [
+                { text: "variable" },
+                { text: "$var", correct: true },
+                { text: "var" },
+                { text: "declare" }
+            ]
+        },
+        {
+            text: "Qual é a maneira correta de encerrar uma declaração PHP?",
+            responses: [
+                { text: "." },
+                { text: ";" , correct: true },
+                { text: ":" },
+                { text: "," }
+            ]
+        },
+        {
+            text: "Qual das seguintes opções é a forma correta de comentar uma única linha em PHP?",
+            responses: [
+                { text: "// Isso é um comentário" },
+                { text: "<!-- Isso é um comentário -->" },
+                { text: "# Isso é um comentário" },
+                { text: "// Isso é um comentário", correct: true }
+            ]
+        },
+        {
+            text: "Em PHP, como você concatena duas strings?",
+            responses: [
+                { text: "string1 + string2" },
+                { text: "string1 & string2" },
+                { text: "string1 . string2", correct: true },
+                { text: "concat(string1, string2)" }
+            ]
+        },
+        {
+            text: "Qual é a forma correta de iniciar um bloco de código PHP?",
+            responses: [
+                { text: "<php>" },
+                { text: "{php}" },
+                { text: "<?php", correct: true },
+                { text: "{?php}" }
+            ]
+        },
+        {
+            text: "Qual função é usada para obter o comprimento de uma string em PHP?",
+            responses: [
+                { text: "string_length" },
+                { text: "strlen", correct: true },
+                { text: "length" },
+                { text: "str_length" }
+            ]
+        },
+        {
+            text: "Qual é a saída deste código?\n$num = 10;\n$num += 5;\necho $num;",
+            responses: [
+                { text: "10" },
+                { text: "15", correct: true },
+                { text: "5" },
+                { text: "105" }
+            ]
+        },
+        {
+            text: "Qual variável global é usada para obter informações sobre solicitações HTTP?",
+            responses: [
+                { text: "$_REQUEST" },
+                { text: "$_SERVER", correct: true },
+                { text: "$_POST" },
+                { text: "$_GLOBALS" }
+            ]
+        },
+        {
+            text: "Em PHP, qual função é usada para redirecionar para outra página?",
+            responses: [
+                { text: "redirect" },
+                { text: "header", correct: true },
+                { text: "forward" },
+                { text: "goto" }
+            ]
+        }
+    ]
+};
 
 
         var userResponseSkelaton = Array(quiz.questions.length).fill(null)

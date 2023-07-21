@@ -1,5 +1,5 @@
 ﻿@page
-@model DevQuiz.WEB.Views.CSharpQuiz.CSharpQuizHardModel
+@model DevQuiz.WEB.Views.CSharpQuiz.CSharpQuizEasyModel
 @{
 }
 
@@ -222,7 +222,7 @@
                 <!--qusetionContainer-->
                 <div class="questionContainer" v-if="questionIndex<quiz.questions.length" v-bind:key="questionIndex">
                     <header>
-                        <h1 class="title is-6">C#/.NET Quiz</h1>
+                        <h1 class="title is-6">English Quiz</h1>
                         <!--progress-->
                         <div class="progressContainer">
                             <progress class="progress is-info is-small" :value="(questionIndex/quiz.questions.length)*100" max="100">{{(questionIndex/quiz.questions.length)*100}}%</progress>
@@ -290,93 +290,93 @@
             user: "User",
             questions: [
                 {
-                    text: "O que é .NET?",
+                    text: "Which word is a pronoun?",
                     responses: [
-                        { text: "Um sistema operacional" },
-                        { text: "Hyper text transfer protocol" },
-                        { text: "Uma estrutura de desenvolvimento de software", correct: true },
-                        { text: "Nenhuma das opções acima" }
+                        { text: "Book" },
+                        { text: "He", correct: true },
+                        { text: "Sing" },
+                        { text: "Jump" }
                     ]
                 },
                 {
-                    text: "Qual dos seguintes é um componente essencial do .NET Framework?",
+                    text: "Choose the correct plural form of 'cat'.",
                     responses: [
-                        { text: "Common Language Runtime (CLR)", correct: true },
-                        { text: "Java Development Kit (JDK)" },
-                        { text: "Python Interpreter" },
-                        { text: "HTML5" }
+                        { text: "Cats", correct: true },
+                        { text: "Cates" },
+                        { text: "Catis" },
+                        { text: "Caties" }
                     ]
                 },
                 {
-                    text: "Qual linguagem é comumente usada para desenvolver aplicativos no .NET Framework?",
+                    text: "What is the past tense of 'play'?",
                     responses: [
-                        { text: "Java" },
-                        { text: "C++" },
-                        { text: "C#", correct: true },
-                        { text: "PHP" }
+                        { text: "Playing" },
+                        { text: "Played", correct: true },
+                        { text: "Play" },
+                        { text: "Plays" }
                     ]
                 },
                 {
-                    text: "Qual dos seguintes é um ambiente de desenvolvimento integrado (IDE) amplamente utilizado para projetos .NET?",
+                    text: "Select the correct verb: She ________ to school.",
                     responses: [
-                        { text: "Eclipse" },
-                        { text: "Visual Studio", correct: true },
-                        { text: "IntelliJ IDEA" },
-                        { text: "Sublime Text" }
+                        { text: "Goes", correct: true },
+                        { text: "Go" },
+                        { text: "Going" },
+                        { text: "Went" }
                     ]
                 },
                 {
-                    text: "Qual dos seguintes tipos de aplicativos .NET é adequado para executar em várias plataformas, incluindo Windows, macOS e Linux?",
+                    text: "Choose the correct possessive pronoun: This book is ________.",
                     responses: [
-                        { text: "Aplicativos de Console" },
-                        { text: "Aplicativos Windows Forms" },
-                        { text: "Aplicativos WPF (Windows Presentation Foundation)" },
-                        { text: "Aplicativos .NET Core", correct: true }
+                        { text: "Mine", correct: true },
+                        { text: "My" },
+                        { text: "Me" },
+                        { text: "I" }
                     ]
                 },
                 {
-                    text: "O que é ASP.NET?",
+                    text: "Identify the correct plural form of 'dog'.",
                     responses: [
-                        { text: "Uma linguagem de marcação para criar páginas web estáticas" },
-                        { text: "Uma estrutura para criar aplicativos web usando C#", correct: true },
-                        { text: "Uma ferramenta de edição de imagens" },
-                        { text: "Uma biblioteca de jogos em 3D" }
+                        { text: "Doges" },
+                        { text: "Dogs", correct: true },
+                        { text: "Dogies" },
+                        { text: "Dogses" }
                     ]
                 },
                 {
-                    text: "Qual dos seguintes é um mecanismo usado no .NET Framework para organizar e gerenciar dados de forma hierárquica?",
+                    text: "What is the correct comparative form of 'big'?",
                     responses: [
-                        { text: "Entity Framework", correct: true },
-                        { text: "LINQ (Language Integrated Query)" },
-                        { text: "ADO.NET (Active Data Objects)" },
-                        { text: "ASP.NET Core" }
+                        { text: "Biger" },
+                        { text: "More big" },
+                        { text: "Bigger", correct: true },
+                        { text: "Biggest" }
                     ]
                 },
                 {
-                    text: "Quais dos seguintes são os principais pilares do .NET Core?",
+                    text: "Choose the correct article: 'I have ___ apple.'",
                     responses: [
-                        { text: "Common Language Runtime (CLR) e Framework Class Library (FCL)" },
-                        { text: "Linguagens de Programação e Compilador Just-In-Time (JIT)" },
-                        { text: "Common Language Runtime (CLR) e Biblioteca Unificada (UCL)" },
-                        { text: "Linguagens de Programação e Framework Class Library (FCL)", correct: true }
+                        { text: "A" },
+                        { text: "An" },
+                        { text: "The" },
+                        { text: "No article", correct: true }
                     ]
                 },
                 {
-                    text: "O que é o NuGet no ecossistema .NET?",
+                    text: "What is the present continuous tense of 'eat'?",
                     responses: [
-                        { text: "Um compilador para C#" },
-                        { text: "Um repositório de código-fonte aberto" },
-                        { text: "Um sistema de controle de versão" },
-                        { text: "Um gerenciador de pacotes", correct: true }
+                        { text: "Eats" },
+                        { text: "Ate" },
+                        { text: "Eating", correct: true },
+                        { text: "Eaten" }
                     ]
                 },
                 {
-                    text: "Qual dos seguintes é um serviço de hospedagem em nuvem da Microsoft para aplicativos .NET?",
+                    text: "Which word is a conjunction?",
                     responses: [
-                        { text: "Azure App Service", correct: true },
-                        { text: "AWS Lambda" },
-                        { text: "Google Cloud Platform (GCP)" },
-                        { text: "Heroku" }
+                        { text: "Happy" },
+                        { text: "Because", correct: true },
+                        { text: "Singing" },
+                        { text: "Table" }
                     ]
                 }
             ]

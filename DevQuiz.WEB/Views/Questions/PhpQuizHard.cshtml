@@ -1,5 +1,5 @@
 ﻿@page
-@model DevQuiz.WEB.Views.CSharpQuiz.CSharpQuizMediumModel
+@model DevQuiz.WEB.Views.CSharpQuiz.CSharpQuizHardModel
 @{
 }
 
@@ -222,7 +222,7 @@
                 <!--qusetionContainer-->
                 <div class="questionContainer" v-if="questionIndex<quiz.questions.length" v-bind:key="questionIndex">
                     <header>
-                        <h1 class="title is-6">C#/.NET Quiz</h1>
+                        <h1 class="title is-6">PHP Quiz</h1>
                         <!--progress-->
                         <div class="progressContainer">
                             <progress class="progress is-info is-small" :value="(questionIndex/quiz.questions.length)*100" max="100">{{(questionIndex/quiz.questions.length)*100}}%</progress>
@@ -286,97 +286,97 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-        var quizUiUx = {
+       var quiz = {
     user: "User",
     questions: [
         {
-            text: "O que significa UI?",
+            text: "O que é o PHP?",
             responses: [
-                { text: "User Integration" },
-                { text: "User Interaction" },
-                { text: "User Interface", correct: true },
-                { text: "User Introduction" }
+                { text: "Uma linguagem de programação para criação de aplicativos de realidade virtual" },
+                { text: "Uma linguagem de script usada para manipulação de banco de dados" },
+                { text: "Uma linguagem de programação frequentemente usada para desenvolvimento web", correct: true },
+                { text: "Uma linguagem de programação usada para criação de aplicativos mobile" }
             ]
         },
         {
-            text: "O que significa UX?",
+            text: "Qual função é usada para abrir um arquivo em modo de leitura em PHP?",
             responses: [
-                { text: "User Experience", correct: true },
-                { text: "User Exception" },
-                { text: "User Execution" },
-                { text: "User Expansion" }
+                { text: "open_file()" },
+                { text: "read_file()" },
+                { text: "open()" },
+                { text: "fopen()", correct: true }
             ]
         },
         {
-            text: "Qual é o objetivo principal do design de interface de usuário (UI)?",
+            text: "Em PHP, como você pode verificar se um arquivo existe antes de abri-lo?",
             responses: [
-                { text: "Facilitar a interação do usuário com o sistema", correct: true },
-                { text: "Criar uma experiência única e inovadora" },
-                { text: "Otimizar o desempenho do sistema" },
-                { text: "Aumentar o tráfego do site" }
+                { text: "Usando a função file_exists()", correct: true },
+                { text: "Verificando se o arquivo está vazio" },
+                { text: "Utilizando a função is_file()" },
+                { text: "Usando a função file_open()" }
             ]
         },
         {
-            text: "O que é wireframe em design de UI/UX?",
+            text: "Qual é o resultado da expressão 10 + '10' em PHP?",
             responses: [
-                { text: "Um protótipo funcional do aplicativo" },
-                { text: "Uma representação visual das cores do design" },
-                { text: "Um esboço básico da estrutura do layout", correct: true },
-                { text: "Um relatório com as métricas de desempenho" }
+                { text: "20" },
+                { text: "1010" },
+                { text: "Erro de tipo" },
+                { text: "20", correct: true }
             ]
         },
         {
-            text: "Em UI/UX, o que é a jornada do usuário?",
+            text: "Qual função é usada para encontrar o maior valor em um array em PHP?",
             responses: [
-                { text: "Uma competição entre usuários" },
-                { text: "Uma série de etapas para resolver um problema" },
-                { text: "O caminho percorrido pelo usuário para alcançar um objetivo", correct: true },
-                { text: "Uma pesquisa sobre a satisfação do usuário" }
+                { text: "array_max()" },
+                { text: "max()", correct: true },
+                { text: "array_find_max()" },
+                { text: "find_max()" }
             ]
         },
         {
-            text: "O que é um mockup em design de UI/UX?",
+            text: "Em PHP, como você pode obter o número de elementos em um array?",
             responses: [
-                { text: "Uma representação gráfica das interações do usuário" },
-                { text: "Uma simulação de um aplicativo em funcionamento" },
-                { text: "Uma representação visual do design final do aplicativo", correct: true },
-                { text: "Um protótipo funcional do aplicativo" }
+                { text: "array_length()" },
+                { text: "size()" },
+                { text: "count()", correct: true },
+                { text: "length()" }
             ]
         },
         {
-            text: "Em UI/UX, o que é a hierarquia visual?",
+            text: "Qual função é usada para substituir todas as ocorrências de uma string em outra string em PHP?",
             responses: [
-                { text: "A estrutura organizacional de uma empresa" },
-                { text: "A maneira como as cores são usadas no design" },
-                { text: "A organização e disposição dos elementos na interface", correct: true },
-                { text: "A ordem cronológica das ações do usuário" }
+                { text: "replace()" },
+                { text: "str_replace()", correct: true },
+                { text: "str_swap()" },
+                { text: "str_replace_all()" }
             ]
         },
         {
-            text: "O que é acessibilidade em design de UI/UX?",
+            text: "Em PHP, como você pode definir um cookie?",
             responses: [
-                { text: "A facilidade de uso de um aplicativo" },
-                { text: "A compatibilidade com diferentes dispositivos" },
-                { text: "A garantia de que o aplicativo seja adequado para todos os usuários, incluindo pessoas com deficiência", correct: true },
-                { text: "A rapidez com que o aplicativo responde aos comandos do usuário" }
+                { text: "set_cookie()", correct: true },
+                { text: "define_cookie()" },
+                { text: "create_cookie()" },
+                { text: "cookie()" }
             ]
         },
         {
-            text: "O que é feedback em design de UI/UX?",
+            text: "Qual é a finalidade da função htmlentities() em PHP?",
             responses: [
-                { text: "A resposta do usuário sobre a aparência do aplicativo" },
-                { text: "A avaliação do desempenho do aplicativo" },
-                { text: "As informações fornecidas pelo aplicativo ao usuário sobre suas ações", correct: true },
-                { text: "A quantidade de interações do usuário com o aplicativo" }
+                { text: "Converter uma string em uma entidade HTML", correct: true },
+                { text: "Exibir o código-fonte completo de uma página HTML" },
+                { text: "Criar um link para outra página" },
+                { text: "Validar a sintaxe de um arquivo XML" }
             ]
         },
         {
-            text: "Qual é o objetivo da prototipagem em design de UI/UX?",
+            text: "Em PHP, o que a função session_start() faz?",
             responses: [
-                { text: "Testar o aplicativo com um grupo de usuários reais" },
-                { text: "Verificar a viabilidade técnica do aplicativo" },
-                { text: "Avaliar a eficácia do aplicativo" },
-                { text: "Validar o design e a funcionalidade do aplicativo antes do desenvolvimento", correct: true }
+                { text: "Inicia uma nova sessão de comunicação entre cliente e servidor" },
+                { text: "Inicia uma nova sessão de depuração" },
+                { text: "Inicia uma nova sessão de testes" },
+                { text: "Inicia uma nova sessão de usuário e cria um identificador de sessão", correct: true }
             ]
         }
     ]

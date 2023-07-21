@@ -11,42 +11,42 @@ namespace DevQuiz.WEB.Controllers
             return View();
         }
 
-        public IActionResult SqlQuiz()
+        public IActionResult SqlQuizEasy()
         {
             return View();
         }
 
-        public IActionResult PhpQuiz()
+        public IActionResult PhpQuizEasy()
         {
             return View();
         }
 
-        public IActionResult FlutterQuiz()
+        public IActionResult FlutterQuizEasy()
         {
             return View();
         }
 
-        public IActionResult PythonQuiz()
+        public IActionResult PythonQuizEasy()
         {
             return View();
         }
 
-        public IActionResult HtmlCssQuiz()
+        public IActionResult HtmlCssQuizEasy()
         {
             return View();
         }
 
-        public IActionResult UiUxQuiz()
+        public IActionResult UiUxQuizEasy()
         {
             return View();
         }
 
-        public IActionResult ReactQuiz()
+        public IActionResult ReactQuizEasy()
         {
             return View();
         }
 
-        public IActionResult EnglishQuiz()
+        public IActionResult EnglishQuizEasy()
         {
             return View();
         }
@@ -59,45 +59,45 @@ namespace DevQuiz.WEB.Controllers
             return View();
         }
 
-        //public IActionResult SqlQuiz()
-        //{
-        //    return View();
-        //}
+        public IActionResult SqlQuizMedium()
+        {
+            return View();
+        }
 
-        //public IActionResult PhpQuiz()
-        //{
-        //    return View();
-        //}
+        public IActionResult PhpQuizMedium()
+        {
+            return View();
+        }
 
-        //public IActionResult FlutterQuiz()
-        //{
-        //    return View();
-        //}
+        public IActionResult FlutterQuizMedium()
+        {
+            return View();
+        }
 
-        //public IActionResult PythonQuiz()
-        //{
-        //    return View();
-        //}
+        public IActionResult PythonQuizMedium()
+        {
+            return View();
+        }
 
-        //public IActionResult HtmlCssQuiz()
-        //{
-        //    return View();
-        //}
+        public IActionResult HtmlCssQuizMedium()
+        {
+            return View();
+        }
 
-        //public IActionResult UiUxQuiz()
-        //{
-        //    return View();
-        //}
+        public IActionResult UiUxQuizMedium()
+        {
+            return View();
+        }
 
-        //public IActionResult ReactQuiz()
-        //{
-        //    return View();
-        //}
+        public IActionResult ReactQuizMedium()
+        {
+            return View();
+        }
 
-        //public IActionResult EnglishQuiz()
-        //{
-        //    return View();
-        //}
+        public IActionResult EnglishQuizMedium()
+        {
+            return View();
+        }
 
 
         //-------------------------------------
@@ -108,45 +108,45 @@ namespace DevQuiz.WEB.Controllers
             return View();
         }
 
-        //public IActionResult SqlQuiz()
-        //{
-        //    return View();
-        //}
+        public IActionResult SqlQuizHard()
+        {
+            return View();
+        }
 
-        //public IActionResult PhpQuiz()
-        //{
-        //    return View();
-        //}
+        public IActionResult PhpQuizHard()
+        {
+            return View();
+        }
 
-        //public IActionResult FlutterQuiz()
-        //{
-        //    return View();
-        //}
+        public IActionResult FlutterQuizHard()
+        {
+            return View();
+        }
 
-        //public IActionResult PythonQuiz()
-        //{
-        //    return View();
-        //}
+        public IActionResult PythonQuizHard()
+        {
+            return View();
+        }
 
-        //public IActionResult HtmlCssQuiz()
-        //{
-        //    return View();
-        //}
+        public IActionResult HtmlCssQuizHard()
+        {
+            return View();
+        }
 
-        //public IActionResult UiUxQuiz()
-        //{
-        //    return View();
-        //}
+        public IActionResult UiUxQuizHard()
+        {
+            return View();
+        }
 
-        //public IActionResult ReactQuiz()
-        //{
-        //    return View();
-        //}
+        public IActionResult ReactQuizHard()
+        {
+            return View();
+        }
 
-        //public IActionResult EnglishQuiz()
-        //{
-        //    return View();
-        //}
+        public IActionResult EnglishQuizHard()
+        {
+            return View();
+        }
 
     }
 }

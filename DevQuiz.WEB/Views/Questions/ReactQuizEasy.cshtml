@@ -1,5 +1,5 @@
 ﻿@page
-@model DevQuiz.WEB.Views.CSharpQuiz.CSharpQuizMediumModel
+@model DevQuiz.WEB.Views.CSharpQuiz.CSharpQuizEasyModel
 @{
 }
 
@@ -222,7 +222,7 @@
                 <!--qusetionContainer-->
                 <div class="questionContainer" v-if="questionIndex<quiz.questions.length" v-bind:key="questionIndex">
                     <header>
-                        <h1 class="title is-6">C#/.NET Quiz</h1>
+                        <h1 class="title is-6">React Quiz</h1>
                         <!--progress-->
                         <div class="progressContainer">
                             <progress class="progress is-info is-small" :value="(questionIndex/quiz.questions.length)*100" max="100">{{(questionIndex/quiz.questions.length)*100}}%</progress>
@@ -286,101 +286,101 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-        var quizReact = {
-    user: "User",
-    questions: [
-        {
-            text: "O que é React?",
-            responses: [
-                { text: "Uma linguagem de programação" },
-                { text: "Um framework para desenvolvimento de interfaces de usuário", correct: true },
-                { text: "Um banco de dados" },
-                { text: "Um servidor web" }
+        var quiz = {
+            user: "User",
+            questions: [
+                {
+                    text: "O que é React?",
+                    responses: [
+                        { text: "Uma linguagem de programação" },
+                        { text: "Um framework de back-end" },
+                        { text: "Uma biblioteca JavaScript para construção de interfaces de usuário", correct: true },
+                        { text: "Uma ferramenta de gerenciamento de banco de dados" }
+                    ]
+                },
+                {
+                    text: "Qual hook do React é usado para adicionar estado a um componente funcional?",
+                    responses: [
+                        { text: "useEffect" },
+                        { text: "useState", correct: true },
+                        { text: "useContext" },
+                        { text: "useReducer" }
+                    ]
+                },
+                {
+                    text: "Como você renderiza um componente React em um elemento HTML com id 'root'?",
+                    responses: [
+                        { text: "ReactDOM.render(component, 'root');" },
+                        { text: "React.renderComponent(component, 'root');" },
+                        { text: "React.render(component, '#root');" },
+                        { text: "ReactDOM.render(component, document.getElementById('root'));", correct: true }
+                    ]
+                },
+                {
+                    text: "Qual método do ciclo de vida do React é usado para executar código após o componente ser montado?",
+                    responses: [
+                        { text: "componentWillMount" },
+                        { text: "componentDidMount", correct: true },
+                        { text: "componentWillUpdate" },
+                        { text: "componentDidUpdate" }
+                    ]
+                },
+                {
+                    text: "Em React, qual é a sintaxe para renderizar um componente filho chamado 'ChildComponent' dentro de um componente pai?",
+                    responses: [
+                        { text: "<ChildComponent />", correct: true },
+                        { text: "{ChildComponent}" },
+                        { text: "{<ChildComponent>}" },
+                        { text: "(ChildComponent)" }
+                    ]
+                },
+                {
+                    text: "Qual é a biblioteca de gerenciamento de estado mais comumente usada com React?",
+                    responses: [
+                        { text: "Redux", correct: true },
+                        { text: "Axios" },
+                        { text: "Lodash" },
+                        { text: "Jest" }
+                    ]
+                },
+                {
+                    text: "O que é JSX em React?",
+                    responses: [
+                        { text: "JavaScript XML", correct: true },
+                        { text: "Um pré-processador de CSS" },
+                        { text: "Um formato de arquivo de dados" },
+                        { text: "Uma biblioteca de animação" }
+                    ]
+                },
+                {
+                    text: "Como você define um componente React como uma classe?",
+                    responses: [
+                        { text: "class MyComponent extends React.Component {}", correct: true },
+                        { text: "function MyComponent() {}" },
+                        { text: "const MyComponent = React.createClass({})" },
+                        { text: "const MyComponent = React.Component {}" }
+                    ]
+                },
+                {
+                    text: "Qual é a sintaxe correta para passar props para um componente React chamado 'ChildComponent'?",
+                    responses: [
+                        { text: "<ChildComponent props={props} />" },
+                        { text: "<ChildComponent {props} />" },
+                        { text: "<ChildComponent {...props} />", correct: true },
+                        { text: "<ChildComponent props={...props} />" }
+                    ]
+                },
+                {
+                    text: "Qual é a função usada para criar um novo elemento React no Virtual DOM?",
+                    responses: [
+                        { text: "React.createElement()", correct: true },
+                        { text: "React.makeElement()" },
+                        { text: "React.newElement()" },
+                        { text: "React.create()" }
+                    ]
+                }
             ]
-        },
-        {
-            text: "Quais são os principais conceitos do React?",
-            responses: [
-                { text: "Componentes e Diretivas" },
-                { text: "Estado e Eventos", correct: true },
-                { text: "Consultas e Transações" },
-                { text: "Funções e Variáveis" }
-            ]
-        },
-        {
-            text: "Qual hook do React é usado para adicionar estado a um componente funcional?",
-            responses: [
-                { text: "useState", correct: true },
-                { text: "useEffect" },
-                { text: "useReducer" },
-                { text: "useContext" }
-            ]
-        },
-        {
-            text: "Como você renderiza um componente React dentro de outro componente?",
-            responses: [
-                { text: "<ComponenteReact />" },
-                { text: "{ComponenteReact}" },
-                { text: "{<ComponenteReact />}" },
-                { text: "<ComponenteReact>", correct: true }
-            ]
-        },
-        {
-            text: "Em React, o que é JSX?",
-            responses: [
-                { text: "Uma biblioteca JavaScript" },
-                { text: "Uma forma de escrever código PHP" },
-                { text: "Uma extensão de sintaxe que mistura HTML e JavaScript", correct: true },
-                { text: "Um formato de arquivo de imagem" }
-            ]
-        },
-        {
-            text: "Qual método do ciclo de vida do React é chamado depois que o componente é renderizado?",
-            responses: [
-                { text: "componentDidUpdate" },
-                { text: "componentWillUnmount" },
-                { text: "componentDidMount", correct: true },
-                { text: "componentWillMount" }
-            ]
-        },
-        {
-            text: "Em React, qual é a finalidade da prop key em um elemento de lista?",
-            responses: [
-                { text: "Identificar o componente" },
-                { text: "Definir uma chave primária para o componente" },
-                { text: "Identificar elementos únicos na lista", correct: true },
-                { text: "Definir uma propriedade personalizada para o componente" }
-            ]
-        },
-        {
-            text: "O que é o React Router?",
-            responses: [
-                { text: "Um pacote para criar animações em React" },
-                { text: "Um pacote para gerenciar estado em React" },
-                { text: "Uma biblioteca para criar interfaces de usuário em React" },
-                { text: "Uma biblioteca para roteamento em aplicações React", correct: true }
-            ]
-        },
-        {
-            text: "Qual é a biblioteca usada para fazer chamadas de API em React?",
-            responses: [
-                { text: "Axios", correct: true },
-                { text: "Fetch" },
-                { text: "jQuery" },
-                { text: "Request" }
-            ]
-        },
-        {
-            text: "Em React, como você cria um componente funcional?",
-            responses: [
-                { text: "class MyComponent extends Component" },
-                { text: "const MyComponent = React.createFunctionalComponent" },
-                { text: "function MyComponent() {...}", correct: true },
-                { text: "const MyComponent = new Function()" }
-            ]
-        }
-    ]
-};
+        };
 
 
         var userResponseSkelaton = Array(quiz.questions.length).fill(null)

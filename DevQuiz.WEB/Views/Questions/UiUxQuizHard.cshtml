@@ -1,5 +1,5 @@
 ﻿@page
-@model DevQuiz.WEB.Views.CSharpQuiz.CSharpQuizEasyModel
+@model DevQuiz.WEB.Views.CSharpQuiz.CSharpQuizHardModel
 @{
 }
 
@@ -222,7 +222,7 @@
                 <!--qusetionContainer-->
                 <div class="questionContainer" v-if="questionIndex<quiz.questions.length" v-bind:key="questionIndex">
                     <header>
-                        <h1 class="title is-6">C#/.NET Quiz</h1>
+                        <h1 class="title is-6">UI/UX Quiz</h1>
                         <!--progress-->
                         <div class="progressContainer">
                             <progress class="progress is-info is-small" :value="(questionIndex/quiz.questions.length)*100" max="100">{{(questionIndex/quiz.questions.length)*100}}%</progress>
@@ -289,103 +289,75 @@
         var quiz = {
             user: "User",
             questions: [
-                // Perguntas sobre HTML
                 {
-                    text: "Qual tag HTML é usada para criar um hyperlink?",
+                    text: "O que é UI (User Interface - Interface do Usuário)?",
                     responses: [
-                        { text: "<link>" },
-                        { text: "<href>" },
-                        { text: "<a>", correct: true },
-                        { text: "<hyperlink>" }
+                        { text: "É a experiência emocional que o usuário tem ao interagir com um produto ou serviço" },
+                        { text: "É o processo de projetar a estrutura e a funcionalidade de um produto ou serviço" },
+                        { text: "É a camada visual que possibilita a interação entre o usuário e o produto ou serviço", correct: true },
+                        { text: "É o estudo do comportamento e das características dos usuários de um produto ou serviço" }
                     ]
                 },
                 {
-                    text: "Qual elemento HTML é usado para criar uma lista não ordenada?",
+                    text: "O que é UX (User Experience - Experiência do Usuário)?",
                     responses: [
-                        { text: "<ul>", correct: true },
-                        { text: "<list>" },
-                        { text: "<ol>" },
-                        { text: "<unordered-list>" }
+                        { text: "É a experiência emocional que o usuário tem ao interagir com um produto ou serviço", correct: true },
+                        { text: "É o processo de projetar a estrutura e a funcionalidade de um produto ou serviço" },
+                        { text: "É a camada visual que possibilita a interação entre o usuário e o produto ou serviço" },
+                        { text: "É o estudo do comportamento e das características dos usuários de um produto ou serviço" }
                     ]
                 },
                 {
-                    text: "Qual elemento HTML é usado para criar um cabeçalho de nível 1?",
+                    text: "O que é um wireframe?",
                     responses: [
-                        { text: "<heading>" },
-                        { text: "<h1>", correct: true },
-                        { text: "<h6>" },
-                        { text: "<header>" }
+                        { text: "É um protótipo funcional de um produto ou serviço" },
+                        { text: "É um desenho artístico que representa a interface do usuário" },
+                        { text: "É um esboço de baixa fidelidade que representa a estrutura e o layout de um produto ou serviço", correct: true },
+                        { text: "É um modelo 3D que simula a interação do usuário com um produto ou serviço" }
                     ]
                 },
                 {
-                    text: "Qual elemento HTML é usado para criar uma quebra de linha?",
+                    text: "Quais são os princípios básicos de usabilidade?",
                     responses: [
-                        { text: "<linebreak>" },
-                        { text: "<nl>" },
-                        { text: "<br>", correct: true },
-                        { text: "<break>" }
+                        { text: "Eficiência e Produtividade" },
+                        { text: "Estética e Design" },
+                        { text: "Facilidade de Aprendizado e Satisfação do Usuário", correct: true },
+                        { text: "Experiência Emocional e Funcionalidade" }
                     ]
                 },
                 {
-                    text: "Em HTML, qual atributo é usado para especificar um hiperlink?",
+                    text: "O que é acessibilidade em UI/UX?",
                     responses: [
-                        { text: "url" },
-                        { text: "link" },
-                        { text: "href", correct: true },
-                        { text: "src" }
-                    ]
-                },
-                // Perguntas sobre CSS
-                {
-                    text: "Qual propriedade CSS é usada para alterar a cor do texto?",
-                    responses: [
-                        { text: "color", correct: true },
-                        { text: "text-color" },
-                        { text: "font-color" },
-                        { text: "text-style" }
+                        { text: "É a facilidade de acesso às informações do produto ou serviço" },
+                        { text: "É a capacidade de um produto ou serviço ser utilizado por pessoas com deficiência ou necessidades especiais", correct: true },
+                        { text: "É a experiência emocional que o usuário tem ao interagir com um produto ou serviço" },
+                        { text: "É a interação entre o usuário e o produto ou serviço" }
                     ]
                 },
                 {
-                    text: "Qual propriedade CSS é usada para definir o tamanho da fonte?",
+                    text: "Quando se trata de UI/UX, o que é um teste de usabilidade?",
                     responses: [
-                        { text: "font-size", correct: true },
-                        { text: "text-size" },
-                        { text: "font-style" },
-                        { text: "text-font" }
+                        { text: "É a avaliação do design visual de um produto ou serviço" },
+                        { text: "É a verificação de bugs e erros em um produto ou serviço" },
+                        { text: "É a análise da experiência emocional do usuário com um produto ou serviço" },
+                        { text: "É a avaliação da facilidade de uso e eficiência de um produto ou serviço por usuários reais", correct: true }
                     ]
                 },
                 {
-                    text: "Qual propriedade CSS é usada para alterar a cor de fundo de um elemento?",
+                    text: "Em UI/UX, o que é o mapa de empatia?",
                     responses: [
-                        { text: "background-color", correct: true },
-                        { text: "color" },
-                        { text: "background" },
-                        { text: "bg-color" }
-                    ]
-                },
-                {
-                    text: "Qual propriedade CSS é usada para alinhar o texto à direita?",
-                    responses: [
-                        { text: "text-align" },
-                        { text: "align" },
-                        { text: "right-align" },
-                        { text: "text-right", correct: true }
-                    ]
-                },
-                {
-                    text: "Qual propriedade CSS é usada para adicionar uma sombra a um elemento?",
-                    responses: [
-                        { text: "shadow" },
-                        { text: "box-shadow", correct: true },
-                        { text: "text-shadow" },
-                        { text: "element-shadow" }
+                        { text: "É uma técnica de mapeamento de interações entre usuários e um produto ou serviço" },
+                        { text: "É um diagrama que mostra o fluxo de navegação de um produto ou serviço" },
+                        { text: "É uma ferramenta para identificar e compreender as necessidades, desejos e frustrações dos usuários", correct: true },
+                        { text: "É uma representação visual de todos os recursos e funcionalidades de um produto ou serviço" }
                     ]
                 }
             ]
         };
 
 
-        var userResponseSkelaton = Array(quiz.questions.length).fill(null)
+
+                var userResponseSkelaton = Array(quiz.questions.length).fill(null)
 
         var app = new Vue({
             el: "#app",

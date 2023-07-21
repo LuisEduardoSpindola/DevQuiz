@@ -222,7 +222,7 @@
                 <!--qusetionContainer-->
                 <div class="questionContainer" v-if="questionIndex<quiz.questions.length" v-bind:key="questionIndex">
                     <header>
-                        <h1 class="title is-6">C#/.NET Quiz</h1>
+                        <h1 class="title is-6">PHP Quiz</h1>
                         <!--progress-->
                         <div class="progressContainer">
                             <progress class="progress is-info is-small" :value="(questionIndex/quiz.questions.length)*100" max="100">{{(questionIndex/quiz.questions.length)*100}}%</progress>
@@ -290,97 +290,98 @@
             user: "User",
             questions: [
                 {
-                    text: "Which word is a pronoun?",
+                    text: "O que PHP significa?",
                     responses: [
-                        { text: "Book" },
-                        { text: "He", correct: true },
-                        { text: "Sing" },
-                        { text: "Jump" }
+                        { text: "Hypertext Preprocessor", correct: true },
+                        { text: "Personal Home Page" },
+                        { text: "Preprocessed Hypertext" },
+                        { text: "Hypertext Markup Language" }
                     ]
                 },
                 {
-                    text: "Choose the correct plural form of 'cat'.",
+                    text: "Qual função é usada para imprimir algo na saída em PHP?",
                     responses: [
-                        { text: "Cats", correct: true },
-                        { text: "Cates" },
-                        { text: "Catis" },
-                        { text: "Caties" }
+                        { text: "print" },
+                        { text: "display" },
+                        { text: "echo", correct: true },
+                        { text: "output" }
                     ]
                 },
                 {
-                    text: "What is the past tense of 'play'?",
+                    text: "Qual é o símbolo usado para iniciar a tag PHP?",
                     responses: [
-                        { text: "Playing" },
-                        { text: "Played", correct: true },
-                        { text: "Play" },
-                        { text: "Plays" }
+                        { text: "<?php", correct: true },
+                        { text: "<?" },
+                        { text: "<%" },
+                        { text: "$" }
                     ]
                 },
                 {
-                    text: "Select the correct verb: She ________ to school.",
+                    text: "Qual função é usada para obter o comprimento de uma string em PHP?",
                     responses: [
-                        { text: "Goes", correct: true },
-                        { text: "Go" },
-                        { text: "Going" },
-                        { text: "Went" }
+                        { text: "len" },
+                        { text: "length" },
+                        { text: "str_length" },
+                        { text: "strlen", correct: true }
                     ]
                 },
                 {
-                    text: "Choose the correct possessive pronoun: This book is ________.",
+                    text: "Qual é o operador de concatenação de string em PHP?",
                     responses: [
-                        { text: "Mine", correct: true },
-                        { text: "My" },
-                        { text: "Me" },
-                        { text: "I" }
+                        { text: "+" },
+                        { text: "&" },
+                        { text: ".", correct: true },
+                        { text: "," }
                     ]
                 },
                 {
-                    text: "Identify the correct plural form of 'dog'.",
+                    text: "Como se inicia um bloco de código PHP?",
                     responses: [
-                        { text: "Doges" },
-                        { text: "Dogs", correct: true },
-                        { text: "Dogies" },
-                        { text: "Dogses" }
+                        { text: "start" },
+                        { text: "begin" },
+                        { text: "{" },
+                        { text: "{", correct: true }
                     ]
                 },
                 {
-                    text: "What is the correct comparative form of 'big'?",
+                    text: "Qual função é usada para verificar se uma variável está vazia em PHP?",
                     responses: [
-                        { text: "Biger" },
-                        { text: "More big" },
-                        { text: "Bigger", correct: true },
-                        { text: "Biggest" }
+                        { text: "isEmpty" },
+                        { text: "null" },
+                        { text: "empty", correct: true },
+                        { text: "unset" }
                     ]
                 },
                 {
-                    text: "Choose the correct article: 'I have ___ apple.'",
+                    text: "Em PHP, qual função é usada para redirecionar para outra página?",
                     responses: [
-                        { text: "A" },
-                        { text: "An" },
-                        { text: "The" },
-                        { text: "No article", correct: true }
+                        { text: "redirect" },
+                        { text: "header", correct: true },
+                        { text: "forward" },
+                        { text: "goto" }
                     ]
                 },
                 {
-                    text: "What is the present continuous tense of 'eat'?",
+                    text: "Qual função é usada para receber dados enviados por um formulário HTML em PHP?",
                     responses: [
-                        { text: "Eats" },
-                        { text: "Ate" },
-                        { text: "Eating", correct: true },
-                        { text: "Eaten" }
+                        { text: "GET" },
+                        { text: "REQUEST" },
+                        { text: "POST", correct: true },
+                        { text: "RECEIVE" }
                     ]
                 },
                 {
-                    text: "Which word is a conjunction?",
+                    text: "Em PHP, como se escreve um comentário de uma única linha?",
                     responses: [
-                        { text: "Happy" },
-                        { text: "Because", correct: true },
-                        { text: "Singing" },
-                        { text: "Table" }
+                        { text: "//" },
+                        { text: "#" },
+                        { text: "--" },
+                        { text: "//", correct: true }
                     ]
                 }
             ]
         };
+
 
         var userResponseSkelaton = Array(quiz.questions.length).fill(null)
 

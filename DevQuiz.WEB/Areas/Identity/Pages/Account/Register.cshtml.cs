@@ -80,7 +80,7 @@ public class RegisterModel : PageModel
         public string Name { get; set; }
 
 
-        [Required]
+        
         [Display(Name = "Foto")]
         public string UserImage { get; set; }
 
@@ -133,6 +133,11 @@ public class RegisterModel : PageModel
         ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         if (ModelState.IsValid)
         {
+            if (Input.UserImage == null) 
+            {
+                Input.UserImage = "https://cdn-icons-png.flaticon.com/512/172/172163.png?w=740&t=st=1689958818~exp=1689959418~hmac=d2af23867807d41bb63af3a83fd2f4c8bdb6f351d3b50bd4426b0e5af8e9fb99";
+            }
+
             var user = new User
             {
                 UserName = Input.Email,

@@ -222,7 +222,7 @@
                 <!--qusetionContainer-->
                 <div class="questionContainer" v-if="questionIndex<quiz.questions.length" v-bind:key="questionIndex">
                     <header>
-                        <h1 class="title is-6">C#/.NET Quiz</h1>
+                        <h1 class="title is-6">English Quiz</h1>
                         <!--progress-->
                         <div class="progressContainer">
                             <progress class="progress is-info is-small" :value="(questionIndex/quiz.questions.length)*100" max="100">{{(questionIndex/quiz.questions.length)*100}}%</progress>
@@ -286,97 +286,97 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-        var quizHtmlCss = {
+        var quiz = {
             user: "User",
             questions: [
                 {
-                    text: "Qual é a função da tag <head> em um documento HTML?",
+                    text: "Select the correct word to complete the sentence: He is ____ in the park.",
                     responses: [
-                        { text: "Exibir o conteúdo principal da página" },
-                        { text: "Definir o layout da página" },
-                        { text: "Definir o título da página e importar recursos externos, como folhas de estilo e scripts", correct: true },
-                        { text: "Criar links para outras páginas" }
+                        { text: "walking" },
+                        { text: "walk" },
+                        { text: "walks" },
+                        { text: "walked", correct: true }
                     ]
                 },
                 {
-                    text: "Em CSS, como você seleciona um elemento com a classe 'destaque'?",
+                    text: "Choose the correct plural form of 'child'.",
                     responses: [
-                        { text: "#destaque" },
-                        { text: ".destaque", correct: true },
-                        { text: "destaque" },
-                        { text: "<destaque>" }
+                        { text: "Children", correct: true },
+                        { text: "Childs" },
+                        { text: "Childes" },
+                        { text: "Childies" }
                     ]
                 },
                 {
-                    text: "O que a propriedade 'display: none;' faz em CSS?",
+                    text: "Identify the correct form of the verb: She _____ studying English for two years.",
                     responses: [
-                        { text: "Altera o tamanho do elemento para zero" },
-                        { text: "Torna o elemento totalmente transparente" },
-                        { text: "Remove o elemento do fluxo do documento, tornando-o invisível e sem espaço na página", correct: true },
-                        { text: "Aplica um efeito de animação para ocultar o elemento" }
+                        { text: "has been" },
+                        { text: "have been" },
+                        { text: "had been" },
+                        { text: "has being", correct: true }
                     ]
                 },
                 {
-                    text: "Qual é a função da propriedade 'position' em CSS?",
+                    text: "Choose the correct word: I ____ be there on time if you remind me.",
                     responses: [
-                        { text: "Definir a posição vertical do elemento na página" },
-                        { text: "Definir a posição horizontal do elemento na página" },
-                        { text: "Controlar a posição do elemento em relação a seu elemento pai ou ao viewport", correct: true },
-                        { text: "Definir o tamanho do elemento na página" }
+                        { text: "can" },
+                        { text: "could" },
+                        { text: "might" },
+                        { text: "will", correct: true }
                     ]
                 },
                 {
-                    text: "Em CSS, como você seleciona todos os elementos <p> dentro de um elemento <div>?",
+                    text: "What is the superlative form of 'smart'?",
                     responses: [
-                        { text: "div p" },
-                        { text: "div + p" },
-                        { text: "div > p", correct: true },
-                        { text: "p < div" }
+                        { text: "Smartest", correct: true },
+                        { text: "Smarter" },
+                        { text: "More smart" },
+                        { text: "Smartiest" }
                     ]
                 },
                 {
-                    text: "O que a propriedade 'box-sizing: border-box;' faz em CSS?",
+                    text: "Identify the correct form of the verb: They ____ studying for the exam all night.",
                     responses: [
-                        { text: "Adiciona uma borda ao redor do elemento" },
-                        { text: "Torna o elemento um bloco de caixa" },
-                        { text: "Força o elemento a ter dimensões iguais para largura e altura" },
-                        { text: "Faz com que as dimensões do elemento incluam o preenchimento e a borda, e não apenas o conteúdo", correct: true }
+                        { text: "were" },
+                        { text: "has" },
+                        { text: "had" },
+                        { text: "have been", correct: true }
                     ]
                 },
                 {
-                    text: "Qual é a finalidade da propriedade 'z-index' em CSS?",
+                    text: "Select the correct word to complete the sentence: It's _____ that you should come here.",
                     responses: [
-                        { text: "Definir a cor de fundo de um elemento" },
-                        { text: "Controlar a opacidade de um elemento" },
-                        { text: "Definir a ordem de empilhamento dos elementos, especificando sua posição em relação ao eixo Z", correct: true },
-                        { text: "Definir o tamanho de fonte do texto de um elemento" }
+                        { text: "important" },
+                        { text: "essence" },
+                        { text: "imperative", correct: true },
+                        { text: "necessary" }
                     ]
                 },
                 {
-                    text: "Em HTML, como você cria um link para um email?",
+                    text: "Choose the correct word: I have never ____ such a beautiful sight before.",
                     responses: [
-                        { text: "<a>email@example.com</a>" },
-                        { text: "<link>email@example.com</link>" },
-                        { text: "<a href='mailto:email@example.com'>Envie um email</a>", correct: true },
-                        { text: "<mail>email@example.com</mail>" }
+                        { text: "seen", correct: true },
+                        { text: "saw" },
+                        { text: "see" },
+                        { text: "sees" }
                     ]
                 },
                 {
-                    text: "Qual é a função da propriedade 'flex' em CSS?",
+                    text: "Identify the correct form of the verb: By the time we got there, the party ____.",
                     responses: [
-                        { text: "Controlar o espaçamento interno de um elemento" },
-                        { text: "Definir o tamanho máximo de um elemento" },
-                        { text: "Definir a direção do fluxo dos elementos filhos de um contêiner flexível" },
-                        { text: "Controlar a capacidade de um elemento se esticar ou encolher para preencher o espaço disponível", correct: true }
+                        { text: "has ended" },
+                        { text: "had ended", correct: true },
+                        { text: "has been ended" },
+                        { text: "ended" }
                     ]
                 },
                 {
-                    text: "Como você define uma cor semi-transparente em CSS?",
+                    text: "Choose the correct word to complete the sentence: The _____ of the crime was unknown.",
                     responses: [
-                        { text: "transparent" },
-                        { text: "rgba(255, 255, 255, 0.5)", correct: true },
-                        { text: "hexa(FF, FF, FF, 0.5)" },
-                        { text: "opacidade: 0.5" }
+                        { text: "culprit" },
+                        { text: "suspect" },
+                        { text: "perpetrator" },
+                        { text: "perpetrator", correct: true }
                     ]
                 }
             ]

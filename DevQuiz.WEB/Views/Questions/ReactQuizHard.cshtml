@@ -222,7 +222,7 @@
                 <!--qusetionContainer-->
                 <div class="questionContainer" v-if="questionIndex<quiz.questions.length" v-bind:key="questionIndex">
                     <header>
-                        <h1 class="title is-6">C#/.NET Quiz</h1>
+                        <h1 class="title is-6">React Quiz</h1>
                         <!--progress-->
                         <div class="progressContainer">
                             <progress class="progress is-info is-small" :value="(questionIndex/quiz.questions.length)*100" max="100">{{(questionIndex/quiz.questions.length)*100}}%</progress>
@@ -286,97 +286,97 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-        var quizPython = {
+        var quiz = {
     user: "User",
     questions: [
         {
-            text: "Qual é a saída do seguinte código em Python?\n\nx = [1, 2, 3]\ny = x\ny.append(4)\nprint(x)",
+            text: "O que é o React?",
             responses: [
-                { text: "[1, 2, 3]" },
-                { text: "[1, 2, 3, 4]" },
-                { text: "[1, 2, 4]" },
-                { text: "[1, 2, 3, 4]", correct: true }
+                { text: "Um framework de back-end para Node.js" },
+                { text: "Um sistema de gerenciamento de banco de dados" },
+                { text: "Uma biblioteca de JavaScript para construir interfaces de usuário", correct: true },
+                { text: "Uma linguagem de programação para desenvolvimento web" }
             ]
         },
         {
-            text: "Qual é a saída do seguinte código em Python?\n\nfor i in range(5):\n    if i == 3:\n        continue\n    print(i)",
+            text: "O que o JSX representa em React?",
             responses: [
-                { text: "0 1 2 3 4" },
-                { text: "0 1 2 4" },
-                { text: "0 1 2 3" },
-                { text: "0 1 2 4", correct: true }
+                { text: "JavaScript XML" },
+                { text: "JavaScript XHR" },
+                { text: "JavaScript XSL" },
+                { text: "JavaScript XML", correct: true }
             ]
         },
         {
-            text: "Em Python, qual é a diferença entre uma lista e uma tupla?",
+            text: "Qual hook é usado para adicionar estado a um componente funcional no React?",
             responses: [
-                { text: "Uma lista é imutável, enquanto uma tupla é mutável" },
-                { text: "Uma lista pode armazenar qualquer tipo de dado, enquanto uma tupla só pode armazenar inteiros" },
-                { text: "Uma lista usa colchetes [ ], enquanto uma tupla usa parênteses ( )", correct: true },
-                { text: "Uma lista pode ter tamanho variável, enquanto uma tupla tem tamanho fixo" }
+                { text: "useState", correct: true },
+                { text: "useEffect" },
+                { text: "useReducer" },
+                { text: "useContext" }
             ]
         },
         {
-            text: "O que o seguinte código Python faz?\n\nnumbers = [1, 2, 3, 4, 5]\nresult = [x * 2 for x in numbers if x % 2 == 0]",
+            text: "Em React, qual é a forma correta de renderizar condicionalmente um elemento?",
             responses: [
-                { text: "Cria uma lista com os números pares multiplicados por 2" , correct: true },
-                { text: "Cria uma lista com os números ímpares multiplicados por 2" },
-                { text: "Cria uma lista com os números menores que 2 multiplicados por 2" },
-                { text: "Cria uma lista com os números maiores que 2 multiplicados por 2" }
+                { text: "if (condition) { <Element /> }" },
+                { text: "{ condition ? <Element /> : null }", correct: true },
+                { text: "<Element condition={true} />" },
+                { text: "{ <Element condition={true} /> }" }
             ]
         },
         {
-            text: "Qual é o resultado do seguinte código Python?\n\ndef multiply_by_two(x):\n    return x * 2\n\nresult = multiply_by_two(5)",
+            text: "Qual é a finalidade da propriedade key em um componente React?",
             responses: [
-                { text: "10", correct: true },
-                { text: "7" },
-                { text: "25" },
-                { text: "5" }
+                { text: "Identificar unicamente um elemento no DOM" },
+                { text: "Definir um valor padrão para um componente" },
+                { text: "Determinar a prioridade de renderização de um componente" },
+                { text: "Melhorar o desempenho do componente", correct: true }
             ]
         },
         {
-            text: "Em Python, o que a função map() faz?",
+            text: "Como você pode evitar a re-renderização desnecessária de um componente em React?",
             responses: [
-                { text: "Aplica uma função a todos os elementos de uma lista", correct: true },
-                { text: "Cria um dicionário a partir de duas listas" },
-                { text: "Remove elementos duplicados de uma lista" },
-                { text: "Inverte a ordem dos elementos de uma lista" }
+                { text: "Usando a propriedade shouldComponentUpdate" },
+                { text: "Utilizando o hook useMemo" },
+                { text: "Implementando o método componentWillUpdate" },
+                { text: "Usando o hook React.memo", correct: true }
             ]
         },
         {
-            text: "Qual é o método correto para ordenar um dicionário Python pelo valor em ordem crescente?",
+            text: "Em React, qual é a forma correta de lidar com eventos?",
             responses: [
-                { text: "sort()" },
-                { text: "sort(key=lambda x: x[1])" },
-                { text: "sorted()" },
-                { text: "sorted(key=lambda x: x[1])", correct: true }
+                { text: "Atribuir o evento diretamente ao elemento, por exemplo, <button onclick={handleClick} />" },
+                { text: "Usar a propriedade eventListener, por exemplo, <button eventListener='click' handler={handleClick} />" },
+                { text: "Atribuir o evento usando camelCase, por exemplo, <button onClick={handleClick} />", correct: true },
+                { text: "Adicionar um ouvinte de evento diretamente no estado do componente" }
             ]
         },
         {
-            text: "Em Python, qual é a função utilizada para abrir um arquivo em modo de escrita?",
+            text: "Qual método é chamado imediatamente após o componente ser removido do DOM em React?",
             responses: [
-                { text: "open('filename', 'w')", correct: true },
-                { text: "open('filename', 'r')" },
-                { text: "open('filename', 'write')" },
-                { text: "open('filename', 'read')" }
+                { text: "componentDidUnmount" },
+                { text: "componentRemoved" },
+                { text: "componentWillUnmount", correct: true },
+                { text: "componentDeleted" }
             ]
         },
         {
-            text: "Qual é o resultado do seguinte código Python?\n\nnum1 = 10\nnum2 = 20\nprint('Soma:', num1 + num2, 'Subtração:', num1 - num2)",
+            text: "Em React, qual hook é usado para executar efeitos colaterais, como chamadas de API ou manipulação do DOM?",
             responses: [
-                { text: "Soma: 30 Subtração: -10" },
-                { text: "Soma: 1020 Subtração: -1020" },
-                { text: "Soma: 30 Subtração: -30" },
-                { text: "Soma: 30 Subtração: -10", correct: true }
+                { text: "useEffect", correct: true },
+                { text: "useFetch" },
+                { text: "useLifecycle" },
+                { text: "useRender" }
             ]
         },
         {
-            text: "Qual módulo Python é usado para trabalhar com expressões regulares?",
+            text: "Em React, qual é a forma correta de passar dados de um componente pai para um componente filho?",
             responses: [
-                { text: "re", correct: true },
-                { text: "regex" },
-                { text: "regexpy" },
-                { text: "expreg" }
+                { text: "Usar o método getChildProps() no componente filho" },
+                { text: "Passar os dados diretamente na declaração do componente filho, por exemplo, <ChildComponent data={data} />", correct: true },
+                { text: "Definir os dados como propriedades globais" },
+                { text: "Atribuir os dados ao estado do componente filho no método componentDidMount" }
             ]
         }
     ]

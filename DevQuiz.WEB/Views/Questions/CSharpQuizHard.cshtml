@@ -1,5 +1,5 @@
 ﻿@page
-@model DevQuiz.WEB.Views.CSharpQuiz.CSharpQuizMediumModel
+@model DevQuiz.WEB.Views.CSharpQuiz.CSharpQuizHardModel
 @{
 }
 
@@ -286,97 +286,97 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-        var quizEnglish = {
+        var quiz = {
             user: "User",
             questions: [
                 {
-                    text: "What is the plural form of 'child'?",
+                    text: "Qual é o objetivo do LINQ (Language Integrated Query) em C#?",
                     responses: [
-                        { text: "childs" },
-                        { text: "children", correct: true },
-                        { text: "childes" },
-                        { text: "child's" }
+                        { text: "Permitir a criação de interfaces gráficas" },
+                        { text: "Facilitar a comunicação entre servidores" },
+                        { text: "Simplificar consultas e operações com coleções de dados", correct: true },
+                        { text: "Criar animações em aplicativos" }
                     ]
                 },
                 {
-                    text: "Which word is a synonym for 'happy'?",
+                    text: "O que é um delegado em C#?",
                     responses: [
-                        { text: "sad" },
-                        { text: "glad" },
-                        { text: "angry" },
-                        { text: "joyful", correct: true }
+                        { text: "Um tipo de dado que representa um valor" },
+                        { text: "Um mecanismo de controle de acesso a dados" },
+                        { text: "Um tipo de classe especializada em operações matemáticas" },
+                        { text: "Um tipo de referência a um método com uma assinatura específica", correct: true }
                     ]
                 },
                 {
-                    text: "What does the idiom 'break a leg' mean?",
+                    text: "Em C#, como você pode criar uma classe abstrata?",
                     responses: [
-                        { text: "Good luck", correct: true },
-                        { text: "Get well soon" },
-                        { text: "Don't be sad" },
-                        { text: "Be careful" }
+                        { text: "Usando a palavra-chave 'abstract' antes da definição da classe", correct: true },
+                        { text: "Definindo a classe dentro de um namespace abstrato" },
+                        { text: "Usando a palavra-chave 'abstract' antes do método construtor" },
+                        { text: "Usando a palavra-chave 'abstract' antes do nome da classe" }
                     ]
                 },
                 {
-                    text: "Choose the correct past tense of the verb 'go':",
+                    text: "Qual é a diferença entre um método virtual e um método abstrato em C#?",
                     responses: [
-                        { text: "goed" },
-                        { text: "gone" },
-                        { text: "went", correct: true },
-                        { text: "goed" }
+                        { text: "Métodos virtuais podem ser substituídos em classes derivadas, enquanto métodos abstratos devem ser implementados nas classes derivadas", correct: true },
+                        { text: "Métodos abstratos podem ser substituídos em classes derivadas, enquanto métodos virtuais devem ser implementados nas classes derivadas" },
+                        { text: "Métodos virtuais só podem ser chamados por outros métodos virtuais, enquanto métodos abstratos podem ser chamados por qualquer método" },
+                        { text: "Métodos abstratos só podem ser chamados por outros métodos abstratos, enquanto métodos virtuais podem ser chamados por qualquer método" }
                     ]
                 },
                 {
-                    text: "Which word is a homophone for 'write'?",
+                    text: "Em C#, como você pode lançar explicitamente uma exceção?",
                     responses: [
-                        { text: "right" },
-                        { text: "rite" },
-                        { text: "wright" },
-                        { text: "right", correct: true }
+                        { text: "Usando a palavra-chave 'exception'", correct: true },
+                        { text: "Usando a palavra-chave 'throw'" },
+                        { text: "Usando a palavra-chave 'catch'" },
+                        { text: "Usando a palavra-chave 'try'" }
                     ]
                 },
                 {
-                    text: "What is the meaning of the idiom 'piece of cake'?",
+                    text: "Qual é a finalidade do using em C#?",
                     responses: [
-                        { text: "A difficult task" },
-                        { text: "A delicious dessert" },
-                        { text: "Something easy to do", correct: true },
-                        { text: "A broken item" }
+                        { text: "Criar aliases para namespaces" },
+                        { text: "Incluir diretivas de pré-processador" },
+                        { text: "Importar namespaces para uso no código", correct: true },
+                        { text: "Definir constantes e variáveis globais" }
                     ]
                 },
                 {
-                    text: "Choose the correct comparative form of the adjective 'tall':",
+                    text: "O que é o Dapper em C#?",
                     responses: [
-                        { text: "tallest" },
-                        { text: "taller", correct: true },
-                        { text: "more tall" },
-                        { text: "talliest" }
+                        { text: "Um sistema de controle de versão" },
+                        { text: "Um framework para criação de APIs REST" },
+                        { text: "Um ORM (Object-Relational Mapping) de código aberto para acesso a banco de dados", correct: true },
+                        { text: "Um mecanismo de injeção de dependência" }
                     ]
                 },
                 {
-                    text: "What is the opposite of the word 'dark'?",
+                    text: "Qual é a diferença entre o método Equals() e o operador == em C#?",
                     responses: [
-                        { text: "shadow" },
-                        { text: "light", correct: true },
-                        { text: "black" },
-                        { text: "night" }
+                        { text: "Equals() compara os valores de dois objetos, enquanto o operador == compara as referências dos objetos", correct: true },
+                        { text: "Equals() é usado para comparar tipos primitivos, enquanto o operador == é usado para comparar objetos" },
+                        { text: "Equals() compara as referências dos objetos, enquanto o operador == compara os valores dos objetos" },
+                        { text: "Equals() é usado para comparar objetos, enquanto o operador == é usado para comparar tipos primitivos" }
                     ]
                 },
                 {
-                    text: "Choose the correct plural form of the word 'woman':",
+                    text: "Em C#, o que é a palavra-chave async usada para fazer?",
                     responses: [
-                        { text: "womans" },
-                        { text: "womans'", correct: true },
-                        { text: "women" },
-                        { text: "wom's" }
+                        { text: "Definir uma classe como assíncrona" },
+                        { text: "Iniciar uma tarefa assíncrona" },
+                        { text: "Criar um método assíncrono", correct: true },
+                        { text: "Definir uma interface como assíncrona" }
                     ]
                 },
                 {
-                    text: "What does the idiom 'to hit the nail on the head' mean?",
+                    text: "Qual é o objetivo da palavra-chave sealed em C#?",
                     responses: [
-                        { text: "To hurt yourself" },
-                        { text: "To be precise", correct: true },
-                        { text: "To miss an opportunity" },
-                        { text: "To be unkind" }
+                        { text: "Impedir que uma classe seja estendida (herdada) por outras classes", correct: true },
+                        { text: "Impedir que uma classe seja instanciada" },
+                        { text: "Impedir que uma classe seja usada em threads assíncronas" },
+                        { text: "Impedir que uma classe seja compilada" }
                     ]
                 }
             ]

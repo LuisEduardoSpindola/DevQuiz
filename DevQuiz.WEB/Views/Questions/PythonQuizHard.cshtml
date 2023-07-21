@@ -222,7 +222,7 @@
                 <!--qusetionContainer-->
                 <div class="questionContainer" v-if="questionIndex<quiz.questions.length" v-bind:key="questionIndex">
                     <header>
-                        <h1 class="title is-6">C#/.NET Quiz</h1>
+                        <h1 class="title is-6">Python Quiz</h1>
                         <!--progress-->
                         <div class="progressContainer">
                             <progress class="progress is-info is-small" :value="(questionIndex/quiz.questions.length)*100" max="100">{{(questionIndex/quiz.questions.length)*100}}%</progress>
@@ -286,97 +286,97 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-       var quizPhp = {
+        var quiz = {
     user: "User",
     questions: [
         {
-            text: "O que é o PHP?",
+            text: "Qual é a saída do seguinte código em Python?\n\nx = [1, 2, 3]\ny = x\ny.append(4)\nprint(x)",
             responses: [
-                { text: "Uma linguagem de programação para criação de aplicativos de realidade virtual" },
-                { text: "Uma linguagem de script usada para manipulação de banco de dados" },
-                { text: "Uma linguagem de programação frequentemente usada para desenvolvimento web", correct: true },
-                { text: "Uma linguagem de programação usada para criação de aplicativos mobile" }
+                { text: "[1, 2, 3]" },
+                { text: "[1, 2, 3, 4]" },
+                { text: "[1, 2, 4]" },
+                { text: "[1, 2, 3, 4]", correct: true }
             ]
         },
         {
-            text: "Qual função é usada para abrir um arquivo em modo de leitura em PHP?",
+            text: "Qual é a saída do seguinte código em Python?\n\nfor i in range(5):\n    if i == 3:\n        continue\n    print(i)",
             responses: [
-                { text: "open_file()" },
-                { text: "read_file()" },
-                { text: "open()" },
-                { text: "fopen()", correct: true }
+                { text: "0 1 2 3 4" },
+                { text: "0 1 2 4" },
+                { text: "0 1 2 3" },
+                { text: "0 1 2 4", correct: true }
             ]
         },
         {
-            text: "Em PHP, como você pode verificar se um arquivo existe antes de abri-lo?",
+            text: "Em Python, qual é a diferença entre uma lista e uma tupla?",
             responses: [
-                { text: "Usando a função file_exists()", correct: true },
-                { text: "Verificando se o arquivo está vazio" },
-                { text: "Utilizando a função is_file()" },
-                { text: "Usando a função file_open()" }
+                { text: "Uma lista é imutável, enquanto uma tupla é mutável" },
+                { text: "Uma lista pode armazenar qualquer tipo de dado, enquanto uma tupla só pode armazenar inteiros" },
+                { text: "Uma lista usa colchetes [ ], enquanto uma tupla usa parênteses ( )", correct: true },
+                { text: "Uma lista pode ter tamanho variável, enquanto uma tupla tem tamanho fixo" }
             ]
         },
         {
-            text: "Qual é o resultado da expressão 10 + '10' em PHP?",
+            text: "O que o seguinte código Python faz?\n\nnumbers = [1, 2, 3, 4, 5]\nresult = [x * 2 for x in numbers if x % 2 == 0]",
             responses: [
-                { text: "20" },
-                { text: "1010" },
-                { text: "Erro de tipo" },
-                { text: "20", correct: true }
+                { text: "Cria uma lista com os números pares multiplicados por 2" , correct: true },
+                { text: "Cria uma lista com os números ímpares multiplicados por 2" },
+                { text: "Cria uma lista com os números menores que 2 multiplicados por 2" },
+                { text: "Cria uma lista com os números maiores que 2 multiplicados por 2" }
             ]
         },
         {
-            text: "Qual função é usada para encontrar o maior valor em um array em PHP?",
+            text: "Qual é o resultado do seguinte código Python?\n\ndef multiply_by_two(x):\n    return x * 2\n\nresult = multiply_by_two(5)",
             responses: [
-                { text: "array_max()" },
-                { text: "max()", correct: true },
-                { text: "array_find_max()" },
-                { text: "find_max()" }
+                { text: "10", correct: true },
+                { text: "7" },
+                { text: "25" },
+                { text: "5" }
             ]
         },
         {
-            text: "Em PHP, como você pode obter o número de elementos em um array?",
+            text: "Em Python, o que a função map() faz?",
             responses: [
-                { text: "array_length()" },
-                { text: "size()" },
-                { text: "count()", correct: true },
-                { text: "length()" }
+                { text: "Aplica uma função a todos os elementos de uma lista", correct: true },
+                { text: "Cria um dicionário a partir de duas listas" },
+                { text: "Remove elementos duplicados de uma lista" },
+                { text: "Inverte a ordem dos elementos de uma lista" }
             ]
         },
         {
-            text: "Qual função é usada para substituir todas as ocorrências de uma string em outra string em PHP?",
+            text: "Qual é o método correto para ordenar um dicionário Python pelo valor em ordem crescente?",
             responses: [
-                { text: "replace()" },
-                { text: "str_replace()", correct: true },
-                { text: "str_swap()" },
-                { text: "str_replace_all()" }
+                { text: "sort()" },
+                { text: "sort(key=lambda x: x[1])" },
+                { text: "sorted()" },
+                { text: "sorted(key=lambda x: x[1])", correct: true }
             ]
         },
         {
-            text: "Em PHP, como você pode definir um cookie?",
+            text: "Em Python, qual é a função utilizada para abrir um arquivo em modo de escrita?",
             responses: [
-                { text: "set_cookie()", correct: true },
-                { text: "define_cookie()" },
-                { text: "create_cookie()" },
-                { text: "cookie()" }
+                { text: "open('filename', 'w')", correct: true },
+                { text: "open('filename', 'r')" },
+                { text: "open('filename', 'write')" },
+                { text: "open('filename', 'read')" }
             ]
         },
         {
-            text: "Qual é a finalidade da função htmlentities() em PHP?",
+            text: "Qual é o resultado do seguinte código Python?\n\nnum1 = 10\nnum2 = 20\nprint('Soma:', num1 + num2, 'Subtração:', num1 - num2)",
             responses: [
-                { text: "Converter uma string em uma entidade HTML", correct: true },
-                { text: "Exibir o código-fonte completo de uma página HTML" },
-                { text: "Criar um link para outra página" },
-                { text: "Validar a sintaxe de um arquivo XML" }
+                { text: "Soma: 30 Subtração: -10" },
+                { text: "Soma: 1020 Subtração: -1020" },
+                { text: "Soma: 30 Subtração: -30" },
+                { text: "Soma: 30 Subtração: -10", correct: true }
             ]
         },
         {
-            text: "Em PHP, o que a função session_start() faz?",
+            text: "Qual módulo Python é usado para trabalhar com expressões regulares?",
             responses: [
-                { text: "Inicia uma nova sessão de comunicação entre cliente e servidor" },
-                { text: "Inicia uma nova sessão de depuração" },
-                { text: "Inicia uma nova sessão de testes" },
-                { text: "Inicia uma nova sessão de usuário e cria um identificador de sessão", correct: true }
+                { text: "re", correct: true },
+                { text: "regex" },
+                { text: "regexpy" },
+                { text: "expreg" }
             ]
         }
     ]

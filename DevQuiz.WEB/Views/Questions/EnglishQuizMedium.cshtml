@@ -1,5 +1,5 @@
 ﻿@page
-@model DevQuiz.WEB.Views.CSharpQuiz.CSharpQuizHardModel
+@model DevQuiz.WEB.Views.CSharpQuiz.CSharpQuizMediumModel
 @{
 }
 
@@ -222,7 +222,7 @@
                 <!--qusetionContainer-->
                 <div class="questionContainer" v-if="questionIndex<quiz.questions.length" v-bind:key="questionIndex">
                     <header>
-                        <h1 class="title is-6">C#/.NET Quiz</h1>
+                        <h1 class="title is-6">English Quiz</h1>
                         <!--progress-->
                         <div class="progressContainer">
                             <progress class="progress is-info is-small" :value="(questionIndex/quiz.questions.length)*100" max="100">{{(questionIndex/quiz.questions.length)*100}}%</progress>
@@ -286,101 +286,101 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-        var quizSql = {
-    user: "User",
-    questions: [
-        {
-            text: "Qual é o objetivo da cláusula 'GROUP BY' em uma consulta SQL?",
-            responses: [
-                { text: "Ordenar o resultado em ordem crescente" },
-                { text: "Agrupar registros que possuam o mesmo valor em uma coluna específica", correct: true },
-                { text: "Filtrar registros que não atendam a determinada condição" },
-                { text: "Selecionar colunas específicas para a consulta" }
+        var quiz = {
+            user: "User",
+            questions: [
+                {
+                    text: "What is the plural form of 'child'?",
+                    responses: [
+                        { text: "childs" },
+                        { text: "children", correct: true },
+                        { text: "childes" },
+                        { text: "child's" }
+                    ]
+                },
+                {
+                    text: "Which word is a synonym for 'happy'?",
+                    responses: [
+                        { text: "sad" },
+                        { text: "glad" },
+                        { text: "angry" },
+                        { text: "joyful", correct: true }
+                    ]
+                },
+                {
+                    text: "What does the idiom 'break a leg' mean?",
+                    responses: [
+                        { text: "Good luck", correct: true },
+                        { text: "Get well soon" },
+                        { text: "Don't be sad" },
+                        { text: "Be careful" }
+                    ]
+                },
+                {
+                    text: "Choose the correct past tense of the verb 'go':",
+                    responses: [
+                        { text: "goed" },
+                        { text: "gone" },
+                        { text: "went", correct: true },
+                        { text: "goed" }
+                    ]
+                },
+                {
+                    text: "Which word is a homophone for 'write'?",
+                    responses: [
+                        { text: "right" },
+                        { text: "rite" },
+                        { text: "wright" },
+                        { text: "right", correct: true }
+                    ]
+                },
+                {
+                    text: "What is the meaning of the idiom 'piece of cake'?",
+                    responses: [
+                        { text: "A difficult task" },
+                        { text: "A delicious dessert" },
+                        { text: "Something easy to do", correct: true },
+                        { text: "A broken item" }
+                    ]
+                },
+                {
+                    text: "Choose the correct comparative form of the adjective 'tall':",
+                    responses: [
+                        { text: "tallest" },
+                        { text: "taller", correct: true },
+                        { text: "more tall" },
+                        { text: "talliest" }
+                    ]
+                },
+                {
+                    text: "What is the opposite of the word 'dark'?",
+                    responses: [
+                        { text: "shadow" },
+                        { text: "light", correct: true },
+                        { text: "black" },
+                        { text: "night" }
+                    ]
+                },
+                {
+                    text: "Choose the correct plural form of the word 'woman':",
+                    responses: [
+                        { text: "womans" },
+                        { text: "womans'", correct: true },
+                        { text: "women" },
+                        { text: "wom's" }
+                    ]
+                },
+                {
+                    text: "What does the idiom 'to hit the nail on the head' mean?",
+                    responses: [
+                        { text: "To hurt yourself" },
+                        { text: "To be precise", correct: true },
+                        { text: "To miss an opportunity" },
+                        { text: "To be unkind" }
+                    ]
+                }
             ]
-        },
-        {
-            text: "Qual é a finalidade da cláusula 'HAVING' em uma consulta SQL?",
-            responses: [
-                { text: "Selecionar colunas específicas para a consulta" },
-                { text: "Filtrar registros com base em uma condição" },
-                { text: "Agrupar registros de acordo com o valor de uma coluna" },
-                { text: "Filtrar registros agrupados com base em uma condição", correct: true }
-            ]
-        },
-        {
-            text: "Em SQL, qual é a diferença entre INNER JOIN e OUTER JOIN?",
-            responses: [
-                { text: "INNER JOIN retorna apenas registros que possuem correspondência nas duas tabelas, enquanto OUTER JOIN retorna todos os registros de ambas as tabelas", correct: true },
-                { text: "INNER JOIN retorna todos os registros de ambas as tabelas, enquanto OUTER JOIN retorna apenas registros que possuem correspondência nas duas tabelas" },
-                { text: "INNER JOIN não pode ser usado com mais de duas tabelas, enquanto OUTER JOIN pode ser usado com qualquer número de tabelas" },
-                { text: "OUTER JOIN só pode ser usado com duas tabelas, enquanto INNER JOIN pode ser usado com qualquer número de tabelas" }
-            ]
-        },
-        {
-            text: "Qual é o objetivo da cláusula 'ORDER BY' em uma consulta SQL?",
-            responses: [
-                { text: "Agrupar os resultados em ordem crescente ou decrescente com base em uma coluna específica", correct: true },
-                { text: "Filtrar registros que atendam a determinada condição" },
-                { text: "Selecionar colunas específicas para a consulta" },
-                { text: "Agrupar registros que possuam o mesmo valor em uma coluna específica" }
-            ]
-        },
-        {
-            text: "Qual é a finalidade da cláusula 'LIMIT' em uma consulta SQL?",
-            responses: [
-                { text: "Agrupar os resultados em ordem crescente ou decrescente com base em uma coluna específica" },
-                { text: "Limitar a quantidade de registros retornados pela consulta", correct: true },
-                { text: "Filtrar registros que atendam a determinada condição" },
-                { text: "Selecionar colunas específicas para a consulta" }
-            ]
-        },
-        {
-            text: "Em SQL, qual é a função da cláusula 'DISTINCT' em uma consulta?",
-            responses: [
-                { text: "Filtrar registros que atendam a determinada condição" },
-                { text: "Agrupar registros de acordo com o valor de uma coluna" },
-                { text: "Selecionar colunas específicas para a consulta" },
-                { text: "Remover registros duplicados do resultado da consulta", correct: true }
-            ]
-        },
-        {
-            text: "Qual é a função da cláusula 'JOIN' em uma consulta SQL?",
-            responses: [
-                { text: "Selecionar colunas específicas para a consulta" },
-                { text: "Agrupar registros de acordo com o valor de uma coluna" },
-                { text: "Filtrar registros que atendam a determinada condição" },
-                { text: "Combinar dados de duas ou mais tabelas com base em uma coluna relacionada", correct: true }
-            ]
-        },
-        {
-            text: "Em SQL, qual é a função da cláusula 'WHERE' em uma consulta?",
-            responses: [
-                { text: "Selecionar colunas específicas para a consulta" },
-                { text: "Agrupar registros de acordo com o valor de uma coluna" },
-                { text: "Combinar dados de duas ou mais tabelas com base em uma coluna relacionada" },
-                { text: "Filtrar registros que atendam a determinada condição", correct: true }
-            ]
-        },
-        {
-            text: "Qual é o resultado da seguinte consulta SQL?\n\nSELECT name FROM customers WHERE age > 25 ORDER BY name DESC",
-            responses: [
-                { text: "Retorna os nomes dos clientes com idade superior a 25 em ordem alfabética decrescente", correct: true },
-                { text: "Retorna os nomes dos clientes com idade superior a 25 em ordem alfabética crescente" },
-                { text: "Retorna os nomes dos clientes com idade exatamente 25" },
-                { text: "Retorna os nomes de todos os clientes em ordem alfabética decrescente" }
-            ]
-        },
-        {
-            text: "Qual é a finalidade da função agregada SUM() em SQL?",
-            responses: [
-                { text: "Retornar o número total de registros na tabela" },
-                { text: "Retornar a média dos valores em uma coluna numérica" },
-                { text: "Retornar a soma dos valores em uma coluna numérica", correct: true },
-                { text: "Retornar o valor máximo em uma coluna numérica" }
-            ]
-        }
-    ]
-};
+        };
 
 
         var userResponseSkelaton = Array(quiz.questions.length).fill(null)
